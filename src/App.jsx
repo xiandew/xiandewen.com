@@ -34,6 +34,7 @@ export default function App() {
           <Route path="/login" element={user ? <Navigate to="/" replace /> : <LoginPage />} />
           <Route path="/" element={user ? <HomePage /> : <Navigate to="/login" replace />} />
           <Route path="/new" element={user ? <FormPage /> : <Navigate to="/login" replace />} />
+          <Route path="/view" element={user ? <FormPage /> : <Navigate to="/login" replace />} />
           <Route path="/edit" element={user ? <FormPage /> : <Navigate to="/login" replace />} />
         </Routes>
       </BrowserRouter>

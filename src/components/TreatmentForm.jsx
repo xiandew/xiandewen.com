@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-export default function TreatmentForm({ initialData, onSave, onCancel, onDelete }) {
+export default function TreatmentForm({ initialData, onSave, onCancel, onDelete, viewMode = false }) {
   const [fullName, setFullName] = useState('')
   const [contact, setContact] = useState('')
   const [rows, setRows] = useState([])
@@ -88,12 +88,12 @@ export default function TreatmentForm({ initialData, onSave, onCancel, onDelete 
   return (
     <form onSubmit={handleSubmit}>
       <div className="space-y-12">
-        <div className="border-b border-gray-900/10 pb-12">
+        <div>
           <h2 className="text-base/7 font-semibold text-gray-900">
-            {initialData ? 'Edit Customer Treatment' : 'Add New Customer Treatment'}
+            {viewMode ? 'Customer Treatment Details' : (initialData ? 'Edit Customer Treatment' : 'Add New Customer Treatment')}
           </h2>
           <p className="mt-1 text-sm/6 text-gray-600">
-            Enter the customer details and treatments information below.
+            {viewMode ? 'View the customer details and treatments information.' : 'Enter the customer details and treatments information below.'}
           </p>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-6 sm:gap-y-8 sm:grid-cols-6">
@@ -106,7 +106,12 @@ export default function TreatmentForm({ initialData, onSave, onCancel, onDelete 
                   type="text"
                   value={fullName}
                   onChange={e => setFullName(e.target.value)}
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  disabled={viewMode}
+                  className={`block w-full rounded-md px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 sm:text-sm/6 ${
+                    viewMode 
+                      ? 'bg-gray-50 cursor-not-allowed' 
+                      : 'bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600'
+                  }`}
                 />
               </div>
             </div>
@@ -120,28 +125,35 @@ export default function TreatmentForm({ initialData, onSave, onCancel, onDelete 
                   type="text"
                   value={contact}
                   onChange={e => setContact(e.target.value)}
-                  className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  disabled={viewMode}
+                  className={`block w-full rounded-md px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 sm:text-sm/6 ${
+                    viewMode 
+                      ? 'bg-gray-50 cursor-not-allowed' 
+                      : 'bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600'
+                  }`}
                 />
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-b border-gray-900/10 pb-12">
+        <div className="border-t border-gray-900/10 py-12">
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-0">
             <div>
               <h2 className="text-base/7 font-semibold text-gray-900">Treatments</h2>
               <p className="mt-1 text-sm/6 text-gray-600">
-                Add all treatments provided to the customer.
+                {viewMode ? 'List of all treatments provided to the customer.' : 'Add all treatments provided to the customer.'}
               </p>
             </div>
-            <button
-              type="button"
-              onClick={openAddModal}
-              className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 whitespace-nowrap"
-            >
-              Add Treatment
-            </button>
+            {!viewMode && (
+              <button
+                type="button"
+                onClick={openAddModal}
+                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 whitespace-nowrap"
+              >
+                Add Treatment
+              </button>
+            )}
           </div>
 
           {/* Mobile Card View */}
@@ -176,22 +188,24 @@ export default function TreatmentForm({ initialData, onSave, onCancel, onDelete 
                         <p className="text-sm text-gray-700">{row.note}</p>
                       </div>
                     )}
-                    <div className="flex gap-2 pt-2 border-t border-gray-100">
-                      <button
-                        type="button"
-                        onClick={() => openEditModal(originalIndex)}
-                        className="flex-1 text-center px-3 py-1.5 text-sm font-medium text-indigo-600 hover:text-indigo-900 bg-indigo-50 rounded-md"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => removeRow(originalIndex)}
-                        className="flex-1 text-center px-3 py-1.5 text-sm font-medium text-red-600 hover:text-red-900 bg-red-50 rounded-md"
-                      >
-                        Remove
-                      </button>
-                    </div>
+                    {!viewMode && (
+                      <div className="flex gap-2 pt-2 border-t border-gray-100">
+                        <button
+                          type="button"
+                          onClick={() => openEditModal(originalIndex)}
+                          className="flex-1 text-center px-3 py-1.5 text-sm font-medium text-indigo-600 hover:text-indigo-900 bg-indigo-50 rounded-md"
+                        >
+                          Edit
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => removeRow(originalIndex)}
+                          className="flex-1 text-center px-3 py-1.5 text-sm font-medium text-red-600 hover:text-red-900 bg-red-50 rounded-md"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    )}
                   </div>
                 </div>
                 )
@@ -219,9 +233,11 @@ export default function TreatmentForm({ initialData, onSave, onCancel, onDelete 
                         <th scope="col" className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                           Note
                         </th>
-                        <th scope="col" className="py-3.5 pr-4 pl-3 sm:pr-6">
-                          <span className="sr-only">Actions</span>
-                        </th>
+                        {!viewMode && (
+                          <th scope="col" className="py-3.5 pr-4 pl-3 sm:pr-6">
+                            <span className="sr-only">Actions</span>
+                          </th>
+                        )}
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-gray-200 bg-white">
@@ -242,22 +258,24 @@ export default function TreatmentForm({ initialData, onSave, onCancel, onDelete 
                               <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-500">{row.quotePrice}</td>
                               <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-500">{row.chargedPrice}</td>
                               <td className="px-3 py-4 text-sm whitespace-nowrap text-gray-500">{row.note}</td>
-                              <td className="py-4 pr-4 pl-3 text-right text-sm font-medium whitespace-nowrap sm:pr-6">
-                                <button
-                                  type="button"
-                                  onClick={() => openEditModal(originalIndex)}
-                                  className="text-indigo-600 hover:text-indigo-900 mr-4"
-                                >
-                                  Edit
-                                </button>
-                                <button
-                                  type="button"
-                                  onClick={() => removeRow(originalIndex)}
-                                  className="text-red-600 hover:text-red-900"
-                                >
-                                  Remove
-                                </button>
-                              </td>
+                              {!viewMode && (
+                                <td className="py-4 pr-4 pl-3 text-right text-sm font-medium whitespace-nowrap sm:pr-6">
+                                  <button
+                                    type="button"
+                                    onClick={() => openEditModal(originalIndex)}
+                                    className="text-indigo-600 hover:text-indigo-900 mr-4"
+                                  >
+                                    Edit
+                                  </button>
+                                  <button
+                                    type="button"
+                                    onClick={() => removeRow(originalIndex)}
+                                    className="text-red-600 hover:text-red-900"
+                                  >
+                                    Remove
+                                  </button>
+                                </td>
+                              )}
                             </tr>
                           )
                         })
@@ -271,34 +289,36 @@ export default function TreatmentForm({ initialData, onSave, onCancel, onDelete 
         </div>
       </div>
 
-      <div className="mt-6 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-x-6">
-        <div className="flex gap-3">
-          {initialData && onDelete && (
+      {!viewMode && (
+        <div className="border-t border-gray-900/10 pt-12 flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-x-6">
+          <div className="flex gap-3">
+            {initialData && onDelete && (
+              <button
+                type="button"
+                onClick={handleDeleteClick}
+                className="w-full sm:w-auto text-center px-3 py-2 text-sm font-semibold text-white bg-red-600 rounded-md hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+              >
+                Delete Customer
+              </button>
+            )}
+          </div>
+          <div className="flex flex-col-reverse sm:flex-row gap-3 sm:gap-x-6">
             <button
               type="button"
-              onClick={handleDeleteClick}
-              className="w-full sm:w-auto text-center px-3 py-2 text-sm font-semibold text-white bg-red-600 rounded-md hover:bg-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+              onClick={onCancel}
+              className="hidden sm:block w-full sm:w-auto text-center px-3 py-2 text-sm/6 font-semibold text-gray-900 rounded-md hover:bg-gray-50"
             >
-              Delete Customer
+              Cancel
             </button>
-          )}
+            <button
+              type="submit"
+              className="w-full sm:w-auto rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            >
+              Save
+            </button>
+          </div>
         </div>
-        <div className="flex flex-col-reverse sm:flex-row gap-3 sm:gap-x-6">
-          <button
-            type="button"
-            onClick={onCancel}
-            className="hidden sm:block w-full sm:w-auto text-center px-3 py-2 text-sm/6 font-semibold text-gray-900 rounded-md hover:bg-gray-50"
-          >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            className="w-full sm:w-auto rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            Save
-          </button>
-        </div>
-      </div>
+      )}
 
       {/* Modal */}
       {showModal && (

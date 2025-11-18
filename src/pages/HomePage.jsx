@@ -27,6 +27,10 @@ export default function HomePage() {
     }
   }
 
+  function handleView(item) {
+    navigate('/view', { state: { item, viewMode: true } })
+  }
+
   function handleEdit(item) {
     navigate('/edit', { state: { item } })
   }
@@ -65,7 +69,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <TreatmentsTable items={items} onEdit={handleEdit} />
+        <TreatmentsTable items={items} onView={handleView} onEdit={handleEdit} />
       </div>
     </div>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function TreatmentsTable({ items, onEdit }) {
+export default function TreatmentsTable({ items, onView, onEdit }) {
   if (!items || items.length === 0) return (
     <div className="text-center text-gray-500 py-8">No records yet.</div>
   )
@@ -10,7 +10,11 @@ export default function TreatmentsTable({ items, onEdit }) {
       {/* Mobile Card View */}
       <div className="mt-6 sm:hidden space-y-4">
         {items.map(item => (
-          <div key={item.id} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+          <div 
+            key={item.id} 
+            className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm cursor-pointer hover:bg-gray-50 transition-colors"
+            onClick={() => onView(item)}
+          >
             <div className="flex justify-between items-start mb-3">
               <div className="flex-1 min-w-0">
                 <h3 className="text-sm font-semibold text-gray-900 truncate">{item.fullName}</h3>
@@ -18,7 +22,10 @@ export default function TreatmentsTable({ items, onEdit }) {
               </div>
               <button
                 type="button"
-                onClick={() => onEdit(item)}
+                onClick={(e) => {
+                  e.stopPropagation()
+                  onEdit(item)
+                }}
                 className="ml-3 text-indigo-600 hover:text-indigo-900 text-sm font-medium whitespace-nowrap"
               >
                 Edit
@@ -54,7 +61,11 @@ export default function TreatmentsTable({ items, onEdit }) {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {items.map(item => (
-                  <tr key={item.id}>
+                  <tr 
+                    key={item.id}
+                    className="cursor-pointer hover:bg-gray-50 transition-colors"
+                    onClick={() => onView(item)}
+                  >
                     <td className="py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-0">
                       {item.fullName}
                     </td>
@@ -63,7 +74,10 @@ export default function TreatmentsTable({ items, onEdit }) {
                     <td className="py-4 pr-4 pl-3 text-right text-sm font-medium whitespace-nowrap sm:pr-0">
                       <button
                         type="button"
-                        onClick={() => onEdit(item)}
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          onEdit(item)
+                        }}
                         className="text-indigo-600 hover:text-indigo-900"
                       >
                         Edit<span className="sr-only">, {item.fullName}</span>
