@@ -27,7 +27,7 @@ export default function App() {
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/customer-treatments-management">
       <Routes>
         <Route path="/login" element={user ? <Navigate to="/" replace /> : <LoginPage />} />
         <Route path="/" element={user ? <HomePage /> : <Navigate to="/login" replace />} />
