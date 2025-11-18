@@ -323,19 +323,6 @@ export default function TreatmentForm({ initialData, onSave, onCancel, onDelete 
               </div>
 
               <div>
-                <label htmlFor="modal-chargedPrice" className="block text-sm/6 font-medium text-gray-900">Charged Price</label>
-                <div className="mt-2">
-                  <input
-                    id="modal-chargedPrice"
-                    type="text"
-                    value={modalData.chargedPrice}
-                    onChange={e => setModalData({ ...modalData, chargedPrice: e.target.value })}
-                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                  />
-                </div>
-              </div>
-
-              <div>
                 <label htmlFor="modal-quotePrice" className="block text-sm/6 font-medium text-gray-900">Quote Price</label>
                 <div className="mt-2">
                   <input
@@ -343,6 +330,19 @@ export default function TreatmentForm({ initialData, onSave, onCancel, onDelete 
                     type="text"
                     value={modalData.quotePrice}
                     onChange={e => setModalData({ ...modalData, quotePrice: e.target.value })}
+                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label htmlFor="modal-chargedPrice" className="block text-sm/6 font-medium text-gray-900">Charged Price</label>
+                <div className="mt-2">
+                  <input
+                    id="modal-chargedPrice"
+                    type="text"
+                    value={modalData.chargedPrice}
+                    onChange={e => setModalData({ ...modalData, chargedPrice: e.target.value })}
                     className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                   />
                 </div>
