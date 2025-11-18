@@ -287,7 +287,7 @@ export default function TreatmentForm({ initialData, onSave, onCancel, onDelete 
           <button
             type="button"
             onClick={onCancel}
-            className="w-full sm:w-auto text-center px-3 py-2 text-sm/6 font-semibold text-gray-900 rounded-md hover:bg-gray-50"
+            className="hidden sm:block w-full sm:w-auto text-center px-3 py-2 text-sm/6 font-semibold text-gray-900 rounded-md hover:bg-gray-50"
           >
             Cancel
           </button>

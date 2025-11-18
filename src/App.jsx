@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage'
 import FormPage from './pages/FormPage'
 import LoginPage from './pages/LoginPage'
 import { onAuthChange } from './firebase'
+import { LoadingProvider } from './contexts/LoadingContext'
 
 export default function App() {
   const [user, setUser] = useState(null)
@@ -27,13 +28,15 @@ export default function App() {
   }
 
   return (
-    <BrowserRouter basename="/customer-treatments-management">
-      <Routes>
-        <Route path="/login" element={user ? <Navigate to="/" replace /> : <LoginPage />} />
-        <Route path="/" element={user ? <HomePage /> : <Navigate to="/login" replace />} />
-        <Route path="/new" element={user ? <FormPage /> : <Navigate to="/login" replace />} />
-        <Route path="/edit" element={user ? <FormPage /> : <Navigate to="/login" replace />} />
-      </Routes>
-    </BrowserRouter>
+    <LoadingProvider>
+      <BrowserRouter basename="/customer-treatments-management">
+        <Routes>
+          <Route path="/login" element={user ? <Navigate to="/" replace /> : <LoginPage />} />
+          <Route path="/" element={user ? <HomePage /> : <Navigate to="/login" replace />} />
+          <Route path="/new" element={user ? <FormPage /> : <Navigate to="/login" replace />} />
+          <Route path="/edit" element={user ? <FormPage /> : <Navigate to="/login" replace />} />
+        </Routes>
+      </BrowserRouter>
+    </LoadingProvider>
   )
 }
