@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import TreatmentsTable from '../components/TreatmentsTable'
+import CustomersTable from '../components/CustomersTable'
 import { getTreatments, logOut, getCurrentUser } from '../firebase'
 import { useLoading } from '../contexts/LoadingContext'
 
@@ -69,7 +69,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <TreatmentsTable items={items} onView={handleView} onEdit={handleEdit} />
+        <CustomersTable items={items} onView={handleView} onEdit={handleEdit} />
       </div>
     </div>
   )

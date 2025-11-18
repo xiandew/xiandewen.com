@@ -1,15 +1,22 @@
 import React from 'react'
 
-export default function TreatmentsTable({ items, onView, onEdit }) {
+export default function CustomersTable({ items, onView, onEdit }) {
   if (!items || items.length === 0) return (
     <div className="text-center text-gray-500 py-8">No records yet.</div>
   )
+
+  // Sort items by fullName alphabetically (case-insensitive)
+  const sortedItems = [...items].sort((a, b) => {
+    const nameA = (a.fullName || '').toLowerCase()
+    const nameB = (b.fullName || '').toLowerCase()
+    return nameA.localeCompare(nameB)
+  })
 
   return (
     <>
       {/* Mobile Card View */}
       <div className="mt-6 sm:hidden space-y-4">
-        {items.map(item => (
+        {sortedItems.map(item => (
           <div 
             key={item.id} 
             className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm cursor-pointer hover:bg-gray-50 transition-colors"
@@ -60,7 +67,7 @@ export default function TreatmentsTable({ items, onView, onEdit }) {
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                {items.map(item => (
+                {sortedItems.map(item => (
                   <tr 
                     key={item.id}
                     className="cursor-pointer hover:bg-gray-50 transition-colors"

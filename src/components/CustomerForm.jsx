@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-export default function TreatmentForm({ initialData, onSave, onCancel, onDelete, viewMode = false }) {
+export default function CustomerForm({ initialData, onSave, onCancel, onDelete, viewMode = false }) {
   const [fullName, setFullName] = useState('')
   const [contact, setContact] = useState('')
   const [rows, setRows] = useState([])

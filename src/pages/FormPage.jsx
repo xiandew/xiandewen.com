@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import TreatmentForm from '../components/TreatmentForm'
+import CustomerForm from '../components/CustomerForm'
 import { addTreatment, updateTreatment, deleteTreatment } from '../firebase'
 import { useLoading } from '../contexts/LoadingContext'
 
@@ -80,7 +80,7 @@ export default function FormPage() {
           )}
         </div>
 
-        <TreatmentForm
+        <CustomerForm
           initialData={editingItem}
           onCancel={handleCancel}
           onSave={handleSave}
