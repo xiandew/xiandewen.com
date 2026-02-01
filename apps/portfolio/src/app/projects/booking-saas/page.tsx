@@ -1,13 +1,15 @@
-export default function BookingLedgerPage() {
+import Link from "next/link"
+
+export default function BookingSaaSPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Booking Ledger
+            Open Booking
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Customer treatment management system with Firebase integration
+            Enterprise-grade appointment booking platform with multi-tenant architecture
           </p>
         </div>
 
@@ -16,21 +18,25 @@ export default function BookingLedgerPage() {
             Project Overview
           </h2>
           <p className="text-gray-600 dark:text-gray-300 mb-4">
-            A comprehensive booking ledger application designed to help businesses manage customer
-            treatments and appointments efficiently. Built with modern web technologies and deployed
-            on Vercel for seamless integration with Firebase.
+            A comprehensive SaaS booking platform that enables businesses to manage appointments,
+            services, and customer relationships. Built with a modern tech stack featuring Next.js,
+            Better Auth, and Material-UI, deployed on Cloudflare Workers for global performance.
           </p>
 
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 mt-6">
             Key Features
           </h3>
           <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
-            <li>Customer management with detailed treatment history</li>
-            <li>Real-time data synchronization with Firebase Firestore</li>
-            <li>Secure authentication with Google Sign-In</li>
-            <li>Responsive design for desktop and mobile devices</li>
-            <li>Treatment tracking with pricing and notes</li>
-            <li>Soft delete functionality for data integrity</li>
+            <li>Multi-tenant architecture supporting multiple businesses</li>
+            <li>Public booking pages for customer self-scheduling</li>
+            <li>Drag-and-drop calendar interface for appointment management</li>
+            <li>Service catalog with pricing and duration management</li>
+            <li>Customer relationship management (CRM)</li>
+            <li>Real-time availability checking</li>
+            <li>Email notifications and reminders</li>
+            <li>Business analytics and reporting</li>
+            <li>Timezone-aware scheduling</li>
+            <li>Mobile-responsive design</li>
           </ul>
 
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 mt-6">
@@ -41,25 +47,43 @@ export default function BookingLedgerPage() {
               Next.js 15
             </span>
             <span className="px-4 py-2 bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 rounded-lg font-semibold">
-              React 19
+              React 18
             </span>
             <span className="px-4 py-2 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-lg font-semibold">
               TypeScript
             </span>
             <span className="px-4 py-2 bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 rounded-lg font-semibold">
-              Firebase
+              Better Auth
+            </span>
+            <span className="px-4 py-2 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 rounded-lg font-semibold">
+              Material-UI
             </span>
             <span className="px-4 py-2 bg-cyan-100 dark:bg-cyan-900 text-cyan-800 dark:text-cyan-200 rounded-lg font-semibold">
-              Tailwind CSS
+              Turso (LibSQL)
             </span>
             <span className="px-4 py-2 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 rounded-lg font-semibold">
-              Vercel
+              Cloudflare Workers
+            </span>
+            <span className="px-4 py-2 bg-teal-100 dark:bg-teal-900 text-teal-800 dark:text-teal-200 rounded-lg font-semibold">
+              Turborepo
             </span>
           </div>
 
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 mt-6">
+            Architecture Highlights
+          </h3>
+          <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-300">
+            <li>Monorepo structure with frontend and backend separation</li>
+            <li>Edge-first deployment on Cloudflare&apos;s global network</li>
+            <li>Database-per-tenant isolation for security</li>
+            <li>Modern authentication with Better Auth</li>
+            <li>Optimistic UI updates for instant feedback</li>
+            <li>Server-side rendering for SEO and performance</li>
+          </ul>
+
           <div className="mt-8 flex gap-4">
             <a
-              href="https://booking-ledger.xiandewen.com"
+              href="https://openbooking.xiandewen.com/business/test-business-1"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition"
