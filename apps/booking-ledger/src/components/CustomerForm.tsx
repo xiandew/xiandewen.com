@@ -129,10 +129,10 @@ export default function CustomerForm({
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   disabled={viewMode}
-                  className={`block w-full rounded-md px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 sm:text-sm/6 ${
+                  className={`block w-full rounded-md px-3 py-1.5 text-base text-gray-900 placeholder:text-gray-400 sm:text-sm/6 ${
                     viewMode
-                      ? "bg-gray-50 cursor-not-allowed"
-                      : "bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                      ? "bg-gray-100 cursor-not-allowed"
+                      : "bg-gray-50 hover:bg-gray-100 focus:bg-white focus:ring-2 focus:ring-indigo-600"
                   }`}
                 />
               </div>
@@ -150,10 +150,10 @@ export default function CustomerForm({
                   value={contact}
                   onChange={(e) => setContact(e.target.value)}
                   disabled={viewMode}
-                  className={`block w-full rounded-md px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 sm:text-sm/6 ${
+                  className={`block w-full rounded-md px-3 py-1.5 text-base text-gray-900 placeholder:text-gray-400 sm:text-sm/6 ${
                     viewMode
-                      ? "bg-gray-50 cursor-not-allowed"
-                      : "bg-white focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                      ? "bg-gray-100 cursor-not-allowed"
+                      : "bg-gray-50 hover:bg-gray-100 focus:bg-white focus:ring-2 focus:ring-indigo-600"
                   }`}
                 />
               </div>
@@ -383,7 +383,7 @@ export default function CustomerForm({
                     type="text"
                     value={modalData.treatment}
                     onChange={(e) => setModalData({ ...modalData, treatment: e.target.value })}
-                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-md bg-gray-50 px-3 py-1.5 text-base text-gray-900 placeholder:text-gray-400 hover:bg-gray-100 focus:bg-white focus:ring-2 focus:ring-indigo-600 sm:text-sm/6"
                   />
                 </div>
               </div>
@@ -401,7 +401,7 @@ export default function CustomerForm({
                     type="text"
                     value={modalData.quotePrice}
                     onChange={(e) => setModalData({ ...modalData, quotePrice: e.target.value })}
-                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-md bg-gray-50 px-3 py-1.5 text-base text-gray-900 placeholder:text-gray-400 hover:bg-gray-100 focus:bg-white focus:ring-2 focus:ring-indigo-600 sm:text-sm/6"
                   />
                 </div>
               </div>
@@ -419,7 +419,7 @@ export default function CustomerForm({
                     type="text"
                     value={modalData.chargedPrice}
                     onChange={(e) => setModalData({ ...modalData, chargedPrice: e.target.value })}
-                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-md bg-gray-50 px-3 py-1.5 text-base text-gray-900 placeholder:text-gray-400 hover:bg-gray-100 focus:bg-white focus:ring-2 focus:ring-indigo-600 sm:text-sm/6"
                   />
                 </div>
               </div>
@@ -434,7 +434,7 @@ export default function CustomerForm({
                     rows={3}
                     value={modalData.note}
                     onChange={(e) => setModalData({ ...modalData, note: e.target.value })}
-                    className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
+                    className="block w-full rounded-md bg-gray-50 px-3 py-1.5 text-base text-gray-900 placeholder:text-gray-400 hover:bg-gray-100 focus:bg-white focus:ring-2 focus:ring-indigo-600 sm:text-sm/6"
                   />
                 </div>
               </div>

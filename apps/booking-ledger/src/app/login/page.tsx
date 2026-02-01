@@ -73,7 +73,7 @@ export default function LoginPage() {
             type="button"
             onClick={handleSignIn}
             disabled={loading}
-            className="w-full flex items-center justify-center gap-3 rounded-md bg-white px-4 py-3 text-sm font-semibold text-gray-900 shadow-xs inset-ring inset-ring-gray-300 hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full flex items-center justify-center gap-3 rounded-md bg-white border border-gray-300 px-4 py-3 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <svg className="h-5 w-5" viewBox="0 0 24 24">
               <path
