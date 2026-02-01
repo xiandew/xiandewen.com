@@ -32,8 +32,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Build portfolio
-        run: pnpm --filter portfolio build
+      - name: Build portfolio with OpenNext
+        run: |
+          cd apps/portfolio
+          pnpm run build
+          npx opennextjs-cloudflare build
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3
