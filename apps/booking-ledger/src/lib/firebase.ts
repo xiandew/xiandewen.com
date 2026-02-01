@@ -8,6 +8,8 @@ import {
   doc,
   updateDoc,
   getDoc,
+  query,
+  where,
 } from "firebase/firestore"
 import {
   getAuth,
@@ -18,15 +20,19 @@ import {
   type User,
 } from "firebase/auth"
 
+// Environment-based configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBArXLKDKXAFm9ZwRdZAzQISw9N3MLpM8s",
-  authDomain: "xr-customer-treatments.firebaseapp.com",
-  projectId: "xr-customer-treatments",
-  storageBucket: "xr-customer-treatments.firebasestorage.app",
-  messagingSenderId: "133660412526",
-  appId: "1:133660412526:web:d62090bd2845050a92347f",
-  measurementId: "G-M6GFV694VW",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY!,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN!,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID!,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET!,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID!,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID!,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 }
+
+// Demo mode flag - when true, bypasses authorization checks and limits to one record
+export const IS_DEMO_MODE = process.env.NEXT_PUBLIC_DEMO_MODE === "true"
 
 const app = initializeApp(firebaseConfig)
 const db = getFirestore(app)
@@ -64,7 +70,12 @@ export async function signInWithGoogle() {
     const result = await signInWithPopup(auth, googleProvider)
     const user = result.user
 
-    // Check if user is authorized
+    // In demo mode, allow anyone to sign in
+    if (IS_DEMO_MODE) {
+      return user
+    }
+
+    // Check if user is authorized (production mode only)
     const isAuthorized = await checkUserAuthorization(user.email!)
 
     if (!isAuthorized) {
@@ -129,7 +140,13 @@ export async function logOut() {
 export function onAuthChange(callback: (user: User | null) => void) {
   return onAuthStateChanged(auth, async (user) => {
     if (user) {
-      // Check if user is authorized before passing to callback
+      // In demo mode, allow any authenticated user
+      if (IS_DEMO_MODE) {
+        callback(user)
+        return
+      }
+
+      // Check if user is authorized before passing to callback (production only)
       const isAuthorized = await checkUserAuthorization(user.email!)
       if (!isAuthorized) {
         // Sign out silently if not authorized
@@ -148,6 +165,19 @@ export function getCurrentUser() {
 
 export async function addTreatment(data: Omit<Treatment, "id">) {
   const user = getCurrentUser()
+
+  // In demo mode, check if user already has a record
+  if (IS_DEMO_MODE) {
+    const existingRecords = await getUserTreatmentCount(user?.uid!)
+    if (existingRecords >= 1) {
+      const error = new Error(
+        "Demo limit reached: You can only create one record in demo mode.",
+      )
+      ;(error as any).code = "demo/limit-reached"
+      throw error
+    }
+  }
+
   const docRef = await addDoc(colRef, {
     ...data,
     userId: user?.uid,
@@ -182,6 +212,13 @@ export async function getTreatments() {
     }
   })
   return list
+}
+
+// Helper function to count user's treatments (for demo mode limit)
+export async function getUserTreatmentCount(userId: string): Promise<number> {
+  const q = query(colRef, where("userId", "==", userId), where("deletedAt", "==", null))
+  const snap = await getDocs(q)
+  return snap.size
 }
 
 export { db, auth }

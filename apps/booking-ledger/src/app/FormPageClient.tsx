@@ -60,9 +60,14 @@ export default function FormPage({ mode }: FormPageProps) {
         await addTreatment(data)
       }
       router.push("/")
-    } catch (error) {
+    } catch (error: any) {
       console.error("Failed to save treatment:", error)
-      alert("Failed to save treatment")
+      // Show user-friendly error message for demo limit
+      if (error.code === "demo/limit-reached") {
+        alert(error.message)
+      } else {
+        alert("Failed to save treatment")
+      }
     } finally {
       hideLoading()
     }

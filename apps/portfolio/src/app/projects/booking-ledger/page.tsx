@@ -18,7 +18,7 @@ export default function BookingLedgerPage() {
           <p className="text-gray-600 dark:text-gray-300 mb-4">
             A comprehensive booking ledger application designed to help businesses manage customer
             treatments and appointments efficiently. Built with modern web technologies and deployed
-            on Vercel for seamless integration with Firebase.
+            on Vercel for seamless integration with Firebase. Try the public demo to create a sample record.
           </p>
 
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 mt-6">
@@ -59,7 +59,7 @@ export default function BookingLedgerPage() {
 
           <div className="mt-8 flex gap-4">
             <a
-              href="https://booking-ledger.xiandewen.com"
+              href="https://booking-ledger-demo.xiandewen.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition"

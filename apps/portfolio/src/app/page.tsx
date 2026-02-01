@@ -94,7 +94,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex gap-2">
                   <a
-                    href="https://booking-ledger.xiandewen.com"
+                    href="https://booking-ledger-demo.xiandewen.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 text-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-md transition"

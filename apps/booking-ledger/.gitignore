@@ -1,0 +1,44 @@
+# Environment files
+.env
+.env*.local
+.env.production
+.env.demo
+
+# Keep only templates
+!.env.local.template
+!.env.demo.template
+
+# Build outputs
+.next
+.turbo
+out
+build
+dist
+
+# Dependencies
+node_modules
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+*.pem
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea
+
+# Testing
+coverage
+*.local
+
+# Vercel
+.vercel
