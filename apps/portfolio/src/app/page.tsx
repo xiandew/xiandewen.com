@@ -1,263 +1,160 @@
+"use client"
+
 import Link from "next/link"
+import Image from "next/image"
 
 export default function HomePage() {
+  const scrollToWork = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    const workSection = document.getElementById("work")
+    if (workSection) {
+      workSection.scrollIntoView({ behavior: "smooth" })
+      window.history.pushState(null, "", "#work")
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
-      {/* Navigation */}
-      <nav className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Xiande Wen</h1>
-            </div>
-            <div className="flex items-center space-x-4">
-              <a
-                href="#projects"
-                className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
-                Projects
-              </a>
-              <a
-                href="#about"
-                className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
-                About
-              </a>
-            </div>
+    <div className="min-h-screen bg-[#Fdfbf7] text-[#333333] font-sans selection:bg-[#E0E7FF]">
+      <main className="max-w-screen-2xl mx-auto px-6 md:px-12 py-12 sm:py-20">
+        
+        {/* Header / Nav */}
+        <header className="flex flex-row justify-between items-center mb-16 sm:mb-24 sticky top-0 z-50 bg-[#Fdfbf7]/80 backdrop-blur-md py-4 -mx-6 px-6 md:-mx-12 md:px-12">
+          <div className="flex items-center gap-2">
+             <span className="font-bold text-lg">Paul (Xiande) Wen</span>
           </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center">
-            <h2 className="text-5xl font-extrabold text-gray-900 dark:text-white sm:text-6xl mb-6">
-              Full Stack Developer
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
-              Building modern web applications with Next.js, React, and cloud technologies.
-              Passionate about creating elegant solutions to complex problems.
-            </p>
-            <a
-              href="#projects"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 transition"
-            >
-              View Projects
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-            Featured Projects
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Booking Ledger Project */}
-            <div className="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="h-48 bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
-                <svg
-                  className="w-20 h-20 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+          <nav>
+            <ul className="flex gap-4 sm:gap-6 text-sm font-medium text-gray-500">
+              <li>
+                <a 
+                  href="#work" 
+                  onClick={scrollToWork}
+                  className="text-black hover:text-blue-600 transition-colors px-3 py-2 rounded-lg hover:bg-gray-100 cursor-pointer"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                  />
-                </svg>
-              </div>
-              <div className="p-6">
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition">
-                  Booking Ledger
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Customer treatment management system with Firebase integration. Track
-                  appointments, treatments, and customer information.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 text-xs font-semibold text-indigo-600 bg-indigo-100 dark:bg-indigo-900 dark:text-indigo-200 rounded-full">
-                    Next.js
-                  </span>
-                  <span className="px-3 py-1 text-xs font-semibold text-indigo-600 bg-indigo-100 dark:bg-indigo-900 dark:text-indigo-200 rounded-full">
-                    Firebase
-                  </span>
-                  <span className="px-3 py-1 text-xs font-semibold text-indigo-600 bg-indigo-100 dark:bg-indigo-900 dark:text-indigo-200 rounded-full">
-                    TypeScript
-                  </span>
-                </div>
-                <div className="flex gap-2">
-                  <a
-                    href="https://booking-ledger-demo.xiandewen.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 text-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-md transition"
-                  >
-                    Live Demo
-                  </a>
-                  <Link
-                    href="/projects/booking-ledger"
-                    className="flex-1 text-center px-4 py-2 border border-indigo-600 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 text-sm font-medium rounded-md transition"
-                  >
-                    Learn More
-                  </Link>
-                </div>
-              </div>
-            </div>
+                  Portfolio
+                </a>
+              </li>
+              <li>
+                <a href="https://xiandew.github.io" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors px-3 py-2 rounded-lg hover:bg-gray-100">
+                  About
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </header>
 
-            {/* Open Booking Project */}
-            <div className="group bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-              <div className="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
-                <svg
-                  className="w-20 h-20 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-              </div>
-              <div className="p-6">
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition">
-                  Open Booking
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Enterprise SaaS booking platform with multi-tenant architecture. Drag-and-drop scheduling, service management, and customer CRM.
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  <span className="px-3 py-1 text-xs font-semibold text-indigo-600 bg-indigo-100 dark:bg-indigo-900 dark:text-indigo-200 rounded-full">
-                    Next.js
-                  </span>
-                  <span className="px-3 py-1 text-xs font-semibold text-indigo-600 bg-indigo-100 dark:bg-indigo-900 dark:text-indigo-200 rounded-full">
-                    Material-UI
-                  </span>
-                  <span className="px-3 py-1 text-xs font-semibold text-indigo-600 bg-indigo-100 dark:bg-indigo-900 dark:text-indigo-200 rounded-full">
-                    Turso
-                  </span>
-                </div>
-                <div className="flex gap-2">
-                  <a
-                    href="https://openbooking.xiandewen.com/business/test-business-1"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1 text-center px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-md transition"
-                  >
-                    Live Demo
-                  </a>
-                  <Link
-                    href="/projects/booking-saas"
-                    className="flex-1 text-center px-4 py-2 border border-indigo-600 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 text-sm font-medium rounded-md transition"
-                  >
-                    Learn More
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            {/* Placeholder for future projects */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden opacity-60">
-              <div className="h-48 bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center">
-                <svg
-                  className="w-20 h-20 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 4v16m8-8H4"
-                  />
-                </svg>
-              </div>
-              <div className="p-6">
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  Coming Soon
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300">
-                  More exciting projects are in development.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden opacity-60">
-              <div className="h-48 bg-gradient-to-br from-gray-400 to-gray-500 flex items-center justify-center">
-                <svg
-                  className="w-20 h-20 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 4v16m8-8H4"
-                  />
-                </svg>
-              </div>
-              <div className="p-6">
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  Coming Soon
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300">
-                  More exciting projects are in development.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-white/50 dark:bg-gray-800/50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">About Me</h3>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-            I'm a full-stack developer specializing in modern web technologies. I build scalable,
-            performant applications using Next.js, React, and serverless architectures. My focus is
-            on creating intuitive user experiences backed by robust, maintainable code.
+        {/* Hero Section */}
+        <section className="mb-24 sm:mb-32 pt-12 sm:pt-20">
+          <h1 className="text-5xl sm:text-8xl font-black tracking-tighter mb-8 leading-[0.9]">
+            Hi. I'm Paul.<br />
+            <span className="text-gray-300">A Senior Engineer.</span>
+          </h1>
+          <p className="text-2xl sm:text-3xl font-medium text-gray-800 leading-snug max-w-2xl">
+            I build production-grade applications that scale.
+            Focusing on clean architecture, performance, and user-centric engineering.
           </p>
-          <div className="flex justify-center space-x-6">
-            <a
-              href="https://github.com/xiandewen"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition"
-            >
-              <span className="sr-only">GitHub</span>
-              <svg className="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  fillRule="evenodd"
-                  d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Footer */}
-      <footer className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
-        <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-gray-500 dark:text-gray-400">
-            © 2026 Xiandewen. All rights reserved.
-          </p>
-        </div>
-      </footer>
+        {/* Projects / Work Section */}
+        <section id="work" className="mb-32">
+          <h2 className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-10 ml-2">
+            In Progress
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6">
+            
+            {/* Project Card 1 - Booking Ledger - Spans 2 cols (Small) */}
+            <Link href="/project/booking-ledger" className="group block col-span-1 md:col-span-2 lg:col-span-2">
+              <div className="relative bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 aspect-square md:aspect-auto lg:h-full min-h-[300px]">
+                 {/* Placeholder for project image/gradient */}
+                 <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-blue-50 to-white transition-colors flex flex-col justify-end p-10">
+                    <div className="mb-auto">
+                        <div className="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center text-indigo-600 ring-1 ring-indigo-50 mb-6">
+                            <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+                        </div>
+                    </div>
+                    <div className="text-left">
+                      <h3 className="font-bold text-3xl text-gray-900 mb-2 tracking-tight">Booking Ledger</h3>
+                      <p className="text-lg text-gray-500 font-medium">Enterprise SaaS Platform</p>
+                    </div>
+                 </div>
+                 {/* Floating Label */}
+                 <div className="absolute top-8 right-8">
+                   <div className="bg-white/80 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-gray-100 flex items-center gap-2">
+                     <span className="w-2 h-2 rounded-full bg-indigo-500 animate-pulse"></span>
+                     <span className="text-xs font-bold text-gray-900 tracking-wide uppercase">Live Beta</span>
+                   </div>
+                 </div>
+              </div>
+            </Link>
+
+             {/* Project Card 2 - Booking SaaS - Spans 4 cols (Big) */}
+             <Link href="/project/booking-saas" className="group block col-span-1 md:col-span-2 lg:col-span-4">
+              <div className="relative bg-white rounded-[2.5rem] overflow-hidden shadow-sm border border-gray-100 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 aspect-[16/10] md:aspect-[16/9]">
+                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-50 via-teal-50 to-white transition-colors flex flex-col justify-end p-10">
+                    <div className="mb-auto">
+                        <span className="block text-6xl">🌱</span>
+                    </div>
+                    <div className="text-left">
+                       <h3 className="font-bold text-3xl text-gray-900 mb-2 tracking-tight">Booking SaaS</h3>
+                       <p className="text-lg text-gray-500 font-medium">Multi-tenant Architecture</p>
+                    </div>
+                 </div>
+                 <div className="absolute top-8 right-8">
+                   <div className="bg-white/80 backdrop-blur-md px-4 py-2 rounded-full shadow-sm border border-gray-100 flex items-center gap-2">
+                     <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+                     <span className="text-xs font-bold text-gray-900 tracking-wide uppercase">In Development</span>
+                   </div>
+                 </div>
+              </div>
+            </Link>
+
+          </div>
+        </section>
+
+        {/* Footer */}
+        <section className="border-t border-gray-200 pt-12 pb-20">
+           <div className="flex flex-wrap gap-4 mb-16">
+             <a 
+               href="mailto:hello@xiandewen.com" 
+               className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-full font-medium transition-colors"
+             >
+               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+               <span>Email</span>
+             </a>
+
+             <a 
+               href="https://github.com/xiandew" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-full font-medium transition-colors"
+             >
+               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+               <span>GitHub</span>
+             </a>
+
+             <a 
+               href="https://linkedin.com/in/xiandewen" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-full font-medium transition-colors"
+             >
+               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+               <span>LinkedIn</span>
+             </a>
+
+             <a 
+               href="https://xiandew.github.io" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="inline-flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-full font-medium transition-colors"
+             >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+               <span>About</span>
+             </a>
+           </div>
+        </section>
+
+      </main>
     </div>
   )
 }
