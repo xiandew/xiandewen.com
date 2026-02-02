@@ -2,21 +2,21 @@ import Link from "next/link"
 
 export default function BookingLedgerPage() {
   return (
-    <div className="min-h-screen bg-[#Fdfbf7] text-[#333333] font-sans selection:bg-[#E0E7FF]">
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-[#E0E7FF] dark:selection:bg-indigo-900">
        {/* Header / Nav */}
-       <header className="flex flex-row justify-between items-center mb-16 sm:mb-24 sticky top-0 z-50 bg-[#Fdfbf7]/80 backdrop-blur-md py-4 px-6 md:px-12">
+       <header className="flex flex-row justify-between items-center mb-16 sm:mb-24 sticky top-0 z-50 bg-background/80 backdrop-blur-md py-4 px-6 md:px-12">
           <div className="flex items-center gap-2">
-             <Link href="/" className="font-bold text-lg hover:text-blue-600 transition-colors">Paul (Xiande) Wen</Link>
+             <Link href="/" className="font-bold text-lg hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Paul (Xiande) Wen</Link>
           </div>
           <nav>
-            <ul className="flex gap-4 sm:gap-6 text-sm font-medium text-gray-500">
+            <ul className="flex gap-4 sm:gap-6 text-sm font-medium text-gray-500 dark:text-gray-400">
               <li>
-                <Link href="/#work" className="hover:text-black transition-colors px-3 py-2 rounded-lg hover:bg-gray-100">
+                <Link href="/#work" className="hover:text-black dark:hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10">
                   Portfolio
                 </Link>
               </li>
               <li>
-                <a href="https://xiandew.github.io" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors px-3 py-2 rounded-lg hover:bg-gray-100">
+                <a href="https://xiandew.github.io" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-white/10">
                   About
                 </a>
               </li>
@@ -28,21 +28,21 @@ export default function BookingLedgerPage() {
         
         {/* Title Section */}
         <div className="mb-12">
-          <Link href="/#work" className="inline-flex items-center text-sm font-medium text-gray-400 hover:text-black mb-6 transition-colors">
+          <Link href="/#work" className="inline-flex items-center text-sm font-medium text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white mb-6 transition-colors">
             <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
             Back to Work
           </Link>
-          <h1 className="text-4xl sm:text-6xl font-black tracking-tighter text-gray-900 mb-6">
+          <h1 className="text-4xl sm:text-6xl font-black tracking-tighter text-gray-900 dark:text-white mb-6">
             Booking Ledger
           </h1>
-          <p className="text-xl sm:text-2xl text-gray-500 leading-relaxed">
+          <p className="text-xl sm:text-2xl text-gray-500 dark:text-gray-400 leading-relaxed">
             Customer treatment management system with Firebase integration.
           </p>
         </div>
 
         {/* Hero Image / Block */}
-        <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-[2.5rem] aspect-video w-full mb-16 flex items-center justify-center border border-gray-100 shadow-sm">
-             <div className="w-24 h-24 bg-white rounded-3xl shadow-sm flex items-center justify-center text-indigo-600 ring-1 ring-indigo-50">
+        <div className="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 rounded-[2.5rem] aspect-video w-full mb-16 flex items-center justify-center border border-gray-100 dark:border-white/10 shadow-sm">
+             <div className="w-24 h-24 bg-white dark:bg-gray-800 rounded-3xl shadow-sm flex items-center justify-center text-indigo-600 dark:text-indigo-400 ring-1 ring-indigo-50 dark:ring-white/10">
                 <svg className="w-12 h-12" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
              </div>
         </div>
@@ -53,8 +53,8 @@ export default function BookingLedgerPage() {
             {/* Main Column */}
             <div className="md:col-span-2 space-y-12">
                 <section>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Overview</h2>
-                    <p className="text-gray-600 leading-relaxed text-lg">
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Overview</h2>
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
                         A comprehensive booking ledger application designed to help businesses manage customer
                         treatments and appointments efficiently. Built with modern web technologies and deployed
                         on Vercel for seamless integration with Firebase. Try the public demo to create a sample record.
@@ -62,8 +62,8 @@ export default function BookingLedgerPage() {
                 </section>
 
                 <section>
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Key Features</h2>
-                    <ul className="space-y-3 text-gray-600">
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Key Features</h2>
+                    <ul className="space-y-3 text-gray-600 dark:text-gray-300">
                         <li className="flex items-start">
                             <svg className="w-5 h-5 mr-3 text-blue-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                             <span>Customer management with detailed treatment history</span>
@@ -98,19 +98,19 @@ export default function BookingLedgerPage() {
                     <h3 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-4">Tech Stack</h3>
                     <div className="flex flex-wrap gap-2">
                         {["Next.js 15", "React 19", "TypeScript", "Firebase", "Tailwind CSS", "Vercel"].map((tech) => (
-                            <span key={tech} className="px-3 py-1 bg-white border border-gray-200 rounded-full text-xs font-semibold text-gray-600">
+                            <span key={tech} className="px-3 py-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-white/10 rounded-full text-xs font-semibold text-gray-600 dark:text-gray-300">
                                 {tech}
                             </span>
                         ))}
                     </div>
                  </div>
 
-                 <div className="pt-6 border-t border-gray-200">
+                 <div className="pt-6 border-t border-gray-200 dark:border-white/10">
                     <a
                       href="https://booking-ledger-demo.xiandewen.com/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block w-full text-center px-6 py-4 bg-black text-white rounded-xl font-bold hover:bg-gray-800 transition-transform hover:scale-[1.02]"
+                      className="block w-full text-center px-6 py-4 bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 rounded-xl font-bold transition-transform hover:scale-[1.02]"
                     >
                       View Live Demo
                     </a>
