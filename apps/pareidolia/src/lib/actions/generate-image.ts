@@ -2,6 +2,7 @@
 
 import { adminAuth, adminDb } from "@/lib/firebase-admin";
 import { MAX_USAGE } from "@/lib/constants";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export async function generateImageAction(
   token: string, 
@@ -43,7 +44,11 @@ export async function generateImageAction(
     const googleApiKey = process.env.GOOGLE_API_KEY;
     if (!googleApiKey) throw new Error("Missing Server Configuration: GOOGLE_API_KEY");
 
-    const modelName = "gemini-2.5-flash-image";
+    const genAI = new GoogleGenerativeAI(googleApiKey);
+    const model = genAI.getGenerativeModel({ 
+      model: "gemini-2.5-flash-image",
+    });
+
     const promptContext = prompt ? `to represent a "${prompt}"` : "to represent an object";
     
     const systemPrompt = `You are a collaborative sketchbook artist.
@@ -77,37 +82,27 @@ export async function generateImageAction(
 
     Output AN IMAGE that is visually identical to the input, except for the few small details you added.`;
 
-    const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/${modelName}:generateContent?key=${googleApiKey}`,
-        {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-                contents: [{
-                    role: "user",
-                    parts: [
-                        { inlineData: { mimeType: "image/png", data: imageBase64 } },
-                        { text: systemPrompt },
-                    ],
-                }],
-                generationConfig: {
-                    responseModalities: ["IMAGE"],
-                    imageConfig: { aspectRatio: "4:3" },
-                },
-            }),
-        }
-    );
+    const result = await model.generateContent({
+      contents: [{
+        role: "user",
+        parts: [
+          { inlineData: { mimeType: "image/png", data: imageBase64 } },
+          { text: systemPrompt },
+        ]
+      }],
+      generationConfig: {
+        // @ts-ignore - The SDK types might not explicitly support 'responseModalities' if outdated, but the API does.
+        responseModalities: ["IMAGE"],
+        imageConfig: { aspectRatio: "4:3" },
+      }
+    });
 
-    if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`Gemini API request failed: ${errorText}`);
-    }
-
-    const data = await response.json();
-    const candidatePart = data?.candidates?.[0]?.content?.parts?.find(
-        (p: any) => p?.inlineData?.data || p?.inline_data?.data
+    const response = await result.response;
+    const candidates = response.candidates;
+    const candidatePart = candidates?.[0]?.content?.parts?.find(
+        (p) => p.inlineData?.data
     );
-    const generatedImageBase64 = candidatePart?.inlineData?.data || candidatePart?.inline_data?.data;
+    const generatedImageBase64 = candidatePart?.inlineData?.data;
 
     if (!generatedImageBase64) {
         throw new Error("Gemini response did not contain an image.");

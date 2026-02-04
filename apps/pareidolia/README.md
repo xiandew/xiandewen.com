@@ -10,19 +10,17 @@ The name comes from a psychological phenomenon where humans see meaningful shape
 
 ## Tech Stack
 
-This project works as a demonstration of modern **Edge + AI** architecture.
+This project works as a demonstration of modern **AI-Native** architecture.
 
-### Frontend & Edge
-- **Next.js 15**: React framework for the user interface.
-- **Cloudflare Workers**: The app is deployed to the edge using `opennextjs-cloudflare` for global low-latency performance.
+### Frontend
+- **Next.js 16**: React framework for the user interface.
+- **Vercel**: Deployed as serverless functions.
 - **Tailwind CSS**: For clean, responsive styling.
 - **HTML5 Canvas**: For the drawing interface.
 
-### AI & Cloud
-- **AWS Bedrock**: We use AWS's managed AI service to run **Amazon Titan Image Generator v2**, one of the most cost-effective and capable models available.
-    - We use the **Conditioning (Canny Edge)** mode to strictly follow user strokes.
-    - This model costs ~$0.01 per image, making it significantly cheaper than Stable Diffusion alternatives.
-    - Model ID: `amazon.titan-image-generator-v2:0`
+### AI & Backend
+- **Google Gemini**: We use **Gemini 2.5 Flash Image** to interpret vector strokes and generate detailed imagery.
+- **Firebase**: Handles authentication and usage limits.
 
 ## Setup
 
@@ -38,4 +36,4 @@ This project works as a demonstration of modern **Edge + AI** architecture.
 
 ## Architecture Note
 
-This app is designed to be **server-less**. It runs almost entirely on Cloudflare's global network, handing off heavy compute tasks (AI generation) to AWS only when needed. This keeps the app extremely fast and cost-effective.
+This app is designed to be **server-less**. It runs on Vercel, handling user sessions via Firebase and handing off creative tasks to Gemini.
