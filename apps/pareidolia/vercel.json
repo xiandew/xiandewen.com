@@ -1,0 +1,7 @@
+{
+  "framework": "nextjs",
+  "name": "pareidolia",
+  "buildCommand": "pnpm build",
+  "installCommand": "pnpm install",
+  "outputDirectory": ".next"
+}
