@@ -339,7 +339,7 @@ export default function BookingSaaSPage() {
                             <div className="flex flex-wrap gap-2">
                                 {[
                                     "Next.js 15", "React 19", "Better Auth", 
-                                    "MUI", "Turso", "Cloudflare", "Turborepo"
+                                    "MUI", "Cloudflare", "Turborepo"
                                 ].map((tech) => (
                                     <span key={tech} className="px-3 py-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-white/10 rounded-lg text-xs font-semibold text-gray-600 dark:text-gray-300">
                                         {tech}
