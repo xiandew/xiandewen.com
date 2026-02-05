@@ -24,7 +24,7 @@ export default function BookingLedgerPage() {
           </nav>
         </header>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-12 pb-20">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 pb-36">
         
         {/* Title Section */}
         <div className="mb-12">
@@ -41,7 +41,7 @@ export default function BookingLedgerPage() {
         </div>
 
         {/* Hero Image / Block */}
-        <div className="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 rounded-[2.5rem] aspect-video md:aspect-[2.4/1] w-full mb-16 flex items-center justify-center border border-gray-100 dark:border-white/10 relative overflow-hidden group">
+        <div className="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 rounded-lg sm:rounded-3xl h-[28rem] sm:h-auto sm:aspect-video md:aspect-[2.4/1] w-full mb-16 flex items-center justify-center border border-gray-100 dark:border-white/10 relative overflow-hidden group">
              
              {/* Abstract Ledger Art */}
              <div className="relative w-full h-full flex items-center justify-center">
@@ -53,8 +53,64 @@ export default function BookingLedgerPage() {
                     ))}
                 </div>
 
-                {/* Main UI Composition */}
-                <div className="flex items-center gap-6 z-10 scale-90 md:scale-110 transition-transform duration-500">
+                {/* Main UI Composition (Mobile) - Optimized Single Card */}
+                <div className="flex sm:hidden z-10 w-full h-full items-center justify-center relative px-6">
+                     
+                     {/* Clean Central Card */}
+                    <div className="w-full max-w-[320px] aspect-[3/4] bg-white dark:bg-gray-800 rounded-2xl border-2 border-indigo-100 dark:border-indigo-900/50 shadow-2xl flex flex-col overflow-hidden relative">
+                         {/* Header */}
+                         <div className="h-16 border-b border-gray-100 dark:border-gray-700 flex items-center px-6 gap-4 bg-gray-50/50 dark:bg-black/20">
+                             <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-indigo-600 shadow-sm">
+                                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg>
+                             </div>
+                             <div>
+                                 <div className="w-24 h-2.5 bg-gray-900 dark:bg-white rounded-full mb-1.5"></div>
+                                 <div className="w-16 h-2 bg-gray-300 dark:bg-gray-600 rounded-full"></div>
+                             </div>
+                         </div>
+                         
+                         {/* Body */}
+                         <div className="p-6 space-y-6 flex-1 bg-white dark:bg-gray-800">
+                             {/* Status Row */}
+                             <div className="flex items-center justify-between">
+                                 <div className="w-20 h-2 bg-gray-200 dark:bg-gray-700 rounded-full"></div>
+                                 <div className="px-3 py-1 bg-green-100 dark:bg-green-900/30 rounded-full text-[10px] font-bold text-green-600 uppercase tracking-wider border border-green-200 dark:border-green-800">Completed</div>
+                             </div>
+                             
+                             {/* Notes Block */}
+                             <div className="space-y-3">
+                                 <div className="w-full h-2 bg-gray-100 dark:bg-gray-700 rounded-full"></div>
+                                 <div className="w-full h-2 bg-gray-100 dark:bg-gray-700 rounded-full"></div>
+                                 <div className="w-2/3 h-2 bg-gray-100 dark:bg-gray-700 rounded-full"></div>
+                             </div>
+
+                             {/* Divider */}
+                             <div className="h-px w-full bg-gray-100 dark:bg-gray-700"></div>
+
+                             {/* Metadata */}
+                             <div className="space-y-4">
+                                  <div className="flex gap-3">
+                                       <div className="w-8 h-8 rounded-lg bg-indigo-50 dark:bg-indigo-900/20"></div>
+                                       <div className="flex-1 space-y-2 py-1">
+                                           <div className="w-full h-2 bg-gray-100 dark:bg-gray-700 rounded-full"></div>
+                                       </div>
+                                  </div>
+                                  <div className="flex gap-3">
+                                       <div className="w-8 h-8 rounded-lg bg-purple-50 dark:bg-purple-900/20"></div>
+                                       <div className="flex-1 space-y-2 py-1">
+                                           <div className="w-3/4 h-2 bg-gray-100 dark:bg-gray-700 rounded-full"></div>
+                                       </div>
+                                  </div>
+                             </div>
+                         </div>
+
+                         {/* Bottom Action */}
+                         <div className="h-2 w-full bg-indigo-500"></div>
+                    </div>
+                </div>
+
+                {/* Main UI Composition (Desktop) */}
+                <div className="hidden sm:flex items-center gap-6 z-10 scale-90 md:scale-110 transition-transform duration-500">
                     
                     {/* The List View (Background Layer) */}
                     <div className="w-48 h-60 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-xl -rotate-6 translate-x-12 opacity-80 flex flex-col overflow-hidden">
@@ -160,36 +216,51 @@ export default function BookingLedgerPage() {
                 <section>
                     <h2 className="text-sm font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-6 font-mono">03. Key Features</h2>
                     
-                    {/* Feature Art: Realtime Sync */}
-                    <div className="mb-8 bg-gray-900 rounded-3xl p-8 relative overflow-hidden flex items-center justify-center min-h-[200px]">
-                        <div className="absolute inset-0 opacity-20">
-                            {/* Matrix rain effect simplified */}
-                             <div className="text-green-500 font-mono text-xs leading-none" style={{wordBreak: 'break-all'}}>
-                                 0101010101011001010101001010101
-                                 1011010100101010101010101011001
-                                 0101010011010101010101010101001
-                             </div>
-                        </div>
+                    {/* Feature Art: Live Data Stream */}
+                    <div className="mb-8 bg-gray-900 rounded-lg sm:rounded-3xl p-8 relative overflow-hidden flex items-center justify-center min-h-[240px] group">
                         
-                        <div className="relative z-10 flex gap-12 items-center">
-                             {/* Device A */}
-                             <div className="w-20 h-24 bg-gray-800 border border-gray-700 rounded-lg p-2 flex flex-col gap-2">
-                                 <div className="w-full h-2 bg-gray-600 rounded"></div>
-                                 <div className="w-2/3 h-2 bg-gray-600 rounded"></div>
-                             </div>
-                             
-                             {/* Sync Icon */}
-                             <div className="w-12 h-12 bg-indigo-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(79,70,229,0.5)] animate-pulse">
-                                 <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
-                             </div>
-
-                             {/* Device B */}
-                             <div className="w-24 h-16 bg-gray-800 border border-gray-700 rounded-lg p-2 flex flex-col gap-2">
-                                 <div className="w-full h-2 bg-gray-600 rounded"></div>
-                                 <div className="w-2/3 h-2 bg-gray-600 rounded"></div>
-                             </div>
+                        {/* Background Grid - Data Plane */}
+                        <div className="absolute inset-0 opacity-20 perspective-1000">
+                           <div className="absolute inset-0 bg-[linear-gradient(rgba(79,70,229,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(79,70,229,0.1)_1px,transparent_1px)] bg-[size:40px_40px] [transform:rotateX(60deg)_scale(2)] origin-top"></div>
                         </div>
-                        <div className="absolute bottom-4 text-xs font-mono text-gray-500">End-to-end Latency: &lt;100ms</div>
+
+                        {/* Central Hub - The Single Source of Truth */}
+                        <div className="relative z-20 flex flex-col items-center">
+                            <div className="w-16 h-16 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-[0_0_40px_rgba(99,102,241,0.6)] animate-pulse relative">
+                                <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
+                                
+                                {/* Orbital rings */}
+                                <div className="absolute inset-0 border border-indigo-500/50 rounded-xl scale-125 animate-[spin_4s_linear_infinite]"></div>
+                                <div className="absolute inset-0 border border-purple-500/30 rounded-xl scale-150 animate-[spin_6s_linear_infinite_reverse]"></div>
+                            </div>
+                            <div className="mt-4 text-[10px] font-mono font-bold text-indigo-400 tracking-widest uppercase bg-black/50 px-2 py-1 rounded border border-indigo-500/30">Firestore Live</div>
+                        </div>
+
+                        {/* Data Ingestion Stream (Left) */}
+                        <div className="hidden sm:flex absolute left-0 top-1/2 -translate-y-1/2 w-1/3 h-20 items-center justify-end pr-8 overflow-hidden">
+                             <div className="relative w-full h-0.5 bg-gradient-to-r from-transparent to-indigo-500/50">
+                                 {/* Moving Packets */}
+                                 <div className="absolute top-1/2 -translate-y-1/2 right-0 w-2 h-2 bg-green-400 rounded-full shadow-[0_0_10px_#4ade80] animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+                                 <div className="absolute top-1/2 -translate-y-1/2 right-12 w-1.5 h-1.5 bg-blue-400 rounded-full shadow-[0_0_10px_#60a5fa] opacity-80"></div>
+                                 <div className="absolute top-1/2 -translate-y-1/2 right-24 w-1 h-1 bg-purple-400 rounded-full shadow-[0_0_10px_#c084fc] opacity-60"></div>
+                             </div>
+                             <div className="absolute right-4 -top-6 text-[9px] font-mono text-gray-500">WRITE</div>
+                        </div>
+
+                        {/* Data Sync Stream (Right) */}
+                        <div className="hidden sm:flex absolute right-0 top-1/2 -translate-y-1/2 w-1/3 h-20 items-center justify-start pl-8 overflow-hidden">
+                             <div className="relative w-full h-0.5 bg-gradient-to-r from-indigo-500/50 to-transparent">
+                                 {/* Moving Packets Out */}
+                                 <div className="absolute top-1/2 -translate-y-1/2 left-0 w-2 h-2 bg-indigo-400 rounded-full shadow-[0_0_10px_#818cf8] animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite_0.5s]"></div>
+                                 <div className="absolute top-1/2 -translate-y-1/2 left-16 w-1.5 h-1.5 bg-indigo-500 rounded-full opacity-80"></div>
+                             </div>
+                             <div className="absolute left-4 -top-6 text-[9px] font-mono text-gray-500">SYNC</div>
+                        </div>
+
+                        {/* Mobile Stream (Vertical) */}
+                         <div className="sm:hidden absolute inset-0 flex flex-col items-center justify-between p-4 opacity-50 pointer-events-none">
+                             <div className="w-px h-full bg-gradient-to-b from-transparent via-indigo-500/20 to-transparent"></div>
+                         </div>
                     </div>
 
                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -233,7 +304,7 @@ export default function BookingLedgerPage() {
                              </a>
                          </div>
 
-                         <div className="pt-6 border-t border-gray-200 dark:border-white/10">
+                         <div className="hidden sm:block pt-6 border-t border-gray-200 dark:border-white/10">
                             <a
                               href="https://booking-ledger-demo.xiandewen.com/"
                               target="_blank"
@@ -250,6 +321,19 @@ export default function BookingLedgerPage() {
 
         </div>
 
+      </div>
+
+      {/* Mobile Sticky Action Button */}
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/90 dark:bg-gray-950/90 backdrop-blur-lg border-t border-gray-200 dark:border-white/10 sm:hidden z-50 pb-8">
+          <a
+              href="https://booking-ledger-demo.xiandewen.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full px-6 py-4 bg-indigo-600 text-white hover:bg-indigo-700 rounded-xl font-bold shadow-lg shadow-indigo-500/20 active:scale-95 transition-transform flex items-center justify-center gap-2"
+          >
+              <span>View Live Demo</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+          </a>
       </div>
     </div>
   )

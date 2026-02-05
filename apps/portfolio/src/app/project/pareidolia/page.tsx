@@ -24,7 +24,7 @@ export default function PareidoliaPage() {
                 </nav>
             </header>
 
-            <div className="max-w-6xl mx-auto px-6 md:px-12 pb-20">
+            <div className="max-w-6xl mx-auto px-6 md:px-12 pb-36">
 
                 {/* Title Section */}
                 <div className="mb-12">
@@ -41,9 +41,80 @@ export default function PareidoliaPage() {
                 </div>
 
                 {/* Hero Image / Block */}
-                <div className="bg-gradient-to-br from-fuchsia-50 via-purple-50 to-white dark:from-gray-900 dark:to-gray-800 rounded-[2.5rem] aspect-video md:aspect-[2.4/1] w-full mb-16 flex items-center justify-center border border-gray-100 dark:border-white/10 relative overflow-hidden group">
-                    {/* CSS Art: Sketch to Image Concept */}
-                    <div className="flex items-center gap-8 md:gap-16 scale-75 md:scale-100 transition-transform duration-500">
+                <div className="bg-gradient-to-br from-fuchsia-50 via-purple-50 to-white dark:from-gray-900 dark:to-gray-800 rounded-lg sm:rounded-3xl h-[28rem] sm:h-auto sm:aspect-video md:aspect-[2.4/1] w-full mb-16 flex items-center justify-center border border-gray-100 dark:border-white/10 relative overflow-hidden group">
+                    {/* CSS Art: Sketch to Image Concept - Mobile (Futuristic Interface) */}
+                    <div className="flex sm:hidden flex-col items-center justify-center w-full h-full p-4 relative overflow-hidden">
+                        
+                        {/* Background Detail */}
+                        <div className="absolute inset-0 bg-transparent">
+                            <div className="absolute inset-0 bg-[linear-gradient(rgba(232,121,249,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(232,121,249,0.03)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+                        </div>
+
+                         {/* Interface Container */}
+                         <div className="relative w-full max-w-[280px] bg-gray-900/5 dark:bg-black/40 backdrop-blur-xl rounded-2xl border border-white/20 dark:border-white/10 shadow-2xl p-4 flex flex-col gap-4 overflow-hidden group">
+                            
+                            {/* Scanning Beam */}
+                            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent animate-[scan_3s_ease-in-out_infinite] opacity-50 z-20"></div>
+
+                            {/* Top Bar */}
+                            <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-2 h-2 rounded-full bg-red-400"></div>
+                                    <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                                    <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                                </div>
+                                <div className="text-[10px] font-mono text-fuchsia-600 dark:text-fuchsia-400 font-bold tracking-wider">GEMINI_2.5_FLASH</div>
+                            </div>
+
+                            {/* Main Display - Split View */}
+                            <div className="relative h-40 w-full bg-black/5 dark:bg-black/40 rounded-lg border border-black/5 dark:border-white/5 overflow-hidden flex">
+                                
+                                {/* Left: Wireframe / Input */}
+                                <div className="w-1/2 h-full relative border-r border-fuchsia-500/20 bg-grid-white/[0.02]">
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                         <svg className="w-12 h-12 text-gray-400 dark:text-gray-600 opacity-60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                        </svg>
+                                    </div>
+                                    <div className="absolute top-2 left-2 text-[8px] font-mono text-gray-400">INPUT_RAW</div>
+                                </div>
+
+                                {/* Right: Rendered / Output */}
+                                <div className="w-1/2 h-full relative overflow-hidden">
+                                     {/* Vivid Background */}
+                                    <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-900 via-purple-900 to-indigo-900 opacity-80"></div>
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                         <div className="absolute w-16 h-16 bg-fuchsia-500/30 blur-xl rounded-full animate-pulse"></div>
+                                         <svg className="w-12 h-12 text-white drop-shadow-[0_0_10px_rgba(255,255,255,0.5)] z-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                        </svg>
+                                    </div>
+                                    <div className="absolute bottom-2 right-2 text-[8px] font-mono text-fuchsia-300 font-bold">RENDER_HQ</div>
+                                </div>
+
+                                {/* Slider / Transition Line */}
+                                <div className="absolute inset-y-0 left-1/2 w-0.5 bg-fuchsia-500 shadow-[0_0_10px_#d946ef] z-10 animate-[pulse_2s_infinite]">
+                                    <div className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 bg-fuchsia-500 rounded-full border-2 border-white flex items-center justify-center shadow-lg">
+                                        <div className="w-0.5 h-2 bg-white rounded-full"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Bottom Stats */}
+                            <div className="flex justify-between items-center text-[9px] font-mono text-gray-500 dark:text-gray-400">
+                                <div className="flex gap-2">
+                                    <span>LATENCY: 48ms</span>
+                                    <span className="text-emerald-500">READY</span>
+                                </div>
+                                <div className="w-16 h-1 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                                    <div className="w-3/4 h-full bg-fuchsia-500 animate-[loading_2s_ease-in-out_infinite]"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* CSS Art: Sketch to Image Concept - Desktop */}
+                    <div className="hidden sm:flex items-center gap-8 md:gap-16 scale-75 md:scale-100 transition-transform duration-500">
                         {/* The "Sketch" */}
                         <div className="relative w-32 h-32 md:w-40 md:h-40 border-4 border-dashed border-gray-300 dark:border-gray-600 rounded-3xl flex items-center justify-center">
                             <div className="w-16 h-16 border-4 border-gray-300 dark:border-gray-600 rounded-full"></div>
@@ -92,7 +163,7 @@ export default function PareidoliaPage() {
                         <section>
                             <h2 className="text-sm font-bold uppercase tracking-widest text-fuchsia-600 dark:text-fuchsia-400 mb-6 font-mono">02. The Engine</h2>
 
-                            <div className="relative overflow-hidden bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-3xl p-8 md:p-10 mb-16 border border-indigo-100 dark:border-white/5">
+                            <div className="relative overflow-hidden bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-lg sm:rounded-3xl p-8 md:p-10 mb-16 border border-indigo-100 dark:border-white/5">
                                 {/* Decorative Background */}
                                 <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-fuchsia-500/10 rounded-full blur-3xl"></div>
                                 <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
@@ -174,18 +245,92 @@ export default function PareidoliaPage() {
                             <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Distraction-free canvas.</h3>
 
                             {/* UI Mockup Art - CSS Only */}
-                            <div className="w-full aspect-[4/3] bg-gray-100 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 relative overflow-hidden shadow-inner flex flex-col mb-8">
+                            <div className="w-full h-[16rem] sm:h-auto sm:aspect-[4/3] bg-gray-100 dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 relative overflow-hidden shadow-inner flex flex-col mb-8">
 
-                                {/* Fake Browser Toolbar */}
-                                <div className="h-8 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 flex items-center px-4 gap-2">
+                                {/* Mobile Simplified Interface - Optimized Abstract City */}
+                                <div className="flex sm:hidden flex-col bg-white dark:bg-gray-950 h-full w-full relative">
+                                    {/* Header */}
+                                    <div className="h-12 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 flex items-center px-6 justify-between shadow-sm z-10 sticky top-0">
+                                         <div className="space-y-0.5">
+                                            <div className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Target Architecture</div>
+                                            <div className="text-sm font-bold text-gray-900 dark:text-gray-100">Cyberpunk Metropolis</div>
+                                         </div>
+                                         <div className="flex gap-1">
+                                             <div className="w-1.5 h-1.5 rounded-full bg-red-400"></div>
+                                             <div className="w-1.5 h-1.5 rounded-full bg-amber-400"></div>
+                                             <div className="w-1.5 h-1.5 rounded-full bg-green-400"></div>
+                                         </div>
+                                    </div>
+                                    
+                                    {/* Canvas Content */}
+                                    <div className="flex-1 relative bg-gray-900 w-full overflow-hidden group">
+                                          {/* Starry Night */}
+                                          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/40 via-gray-900 to-gray-900"></div>
+                                          
+                                          {/* Cityscape Container */}
+                                          <div className="absolute bottom-0 inset-x-0 h-2/3 flex items-end justify-center px-4 gap-1 transform translate-y-2">
+                                              
+                                              {/* Left Group */}
+                                              <div className="w-8 h-16 bg-fuchsia-900/40 border-t border-fuchsia-500/30 rounded-t-sm relative">
+                                                 <div className="absolute top-2 left-1 right-1 h-0.5 bg-fuchsia-500/50"></div>
+                                              </div>
+                                              <div className="w-10 h-24 bg-purple-900/50 border-t border-purple-500/30 rounded-t-sm relative flex flex-col items-center pt-2 gap-1.5">
+                                                  <div className="w-0.5 h-3 bg-fuchsia-400/50 -mt-5"></div> {/* Antenna */}
+                                                  <div className="w-6 h-0.5 bg-purple-400/30"></div>
+                                                  <div className="w-6 h-0.5 bg-purple-400/30"></div>
+                                                  <div className="w-6 h-0.5 bg-purple-400/30"></div>
+                                              </div>
+
+                                              {/* Center Tower (Hero) */}
+                                              <div className="w-16 h-36 bg-gradient-to-b from-indigo-800/60 to-purple-900/60 border-t border-l border-r border-indigo-400/30 rounded-t-lg relative flex flex-col items-center pt-4 backdrop-blur-sm z-10 shadow-[0_0_15px_rgba(99,102,241,0.2)]">
+                                                   {/* Spire */}
+                                                   <div className="absolute -top-6 w-0.5 h-6 bg-indigo-400/80 shadow-[0_0_10px_rgba(99,102,241,0.8)]"></div>
+                                                   <div className="absolute -top-1 w-1 h-1 bg-red-500 rounded-full animate-pulse shadow-[0_0_5px_red]"></div>
+
+                                                   {/* Windows Grid */}
+                                                   <div className="grid grid-cols-2 gap-x-2 gap-y-3 w-8">
+                                                       <div className="h-1.5 w-full bg-indigo-300/80 shadow-[0_0_5px_rgba(165,180,252,0.8)]"></div>
+                                                       <div className="h-1.5 w-full bg-indigo-300/40"></div>
+                                                       <div className="h-1.5 w-full bg-indigo-300/40"></div>
+                                                       <div className="h-1.5 w-full bg-indigo-300/80 shadow-[0_0_5px_rgba(165,180,252,0.8)]"></div>
+                                                        <div className="h-1.5 w-full bg-indigo-300/60"></div>
+                                                       <div className="h-1.5 w-full bg-indigo-300/40"></div>
+                                                   </div>
+                                              </div>
+
+                                              {/* Right Group */}
+                                              <div className="w-12 h-28 bg-blue-900/50 border-t border-blue-500/30 rounded-t-sm relative">
+                                                   <div className="absolute top-3 right-2 w-1 h-1 bg-yellow-400/80 rounded-full shadow-[0_0_5px_yellow]"></div>
+                                                   <div className="mt-4 mx-auto w-8 space-y-2">
+                                                        <div className="h-px w-full bg-blue-400/20"></div>
+                                                        <div className="h-px w-full bg-blue-400/20"></div>
+                                                        <div className="h-px w-full bg-blue-400/20"></div>
+                                                   </div>
+                                              </div>
+                                              <div className="w-8 h-12 bg-cyan-900/40 border-t border-cyan-500/30 rounded-t-sm"></div>
+                                          </div>
+
+                                          {/* Fog/Glow at bottom */}
+                                           <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-fuchsia-900/60 via-purple-900/20 to-transparent"></div>
+
+                                           {/* Controls Floating Bar (Simplified) */}
+                                           <div className="absolute top-6 left-6 flex items-center justify-center gap-3 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full border border-white/10 shadow-lg w-auto">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-green-500 shadow-[0_0_5px_lime]"></div>
+                                                <span className="text-[9px] font-mono text-white/80 tracking-widest">RENDERING...</span>
+                                           </div>
+                                    </div>
+                                </div>
+
+                                {/* Desktop Fake Browser Toolbar */}
+                                <div className="hidden sm:flex h-8 bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 items-center px-4 gap-2 rounded-t-xl">
                                     <div className="w-3 h-3 rounded-full bg-red-400"></div>
                                     <div className="w-3 h-3 rounded-full bg-amber-400"></div>
                                     <div className="w-3 h-3 rounded-full bg-green-400"></div>
                                     <div className="ml-4 w-60 h-4 bg-gray-100 dark:bg-gray-700 rounded-full opacity-50"></div>
                                 </div>
 
-                                {/* App Interface */}
-                                <div className="flex-1 flex relative">
+                                {/* App Interface (Desktop) */}
+                                <div className="hidden sm:flex flex-1 relative rounded-b-xl overflow-hidden shadow-sm">
                                     {/* Toolbar */}
                                     <div className="w-14 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 flex flex-col items-center py-4 gap-3 z-10">
                                         <div className="w-8 h-8 rounded-lg bg-fuchsia-600 text-white flex items-center justify-center font-bold text-xs shadow-lg shadow-fuchsia-500/20 mb-2">AI</div>
@@ -294,7 +439,7 @@ export default function PareidoliaPage() {
                                     </a>
                                 </div>
 
-                                <div className="pt-6 border-t border-gray-200 dark:border-white/10">
+                                <div className="hidden sm:block pt-6 border-t border-gray-200 dark:border-white/10">
                                     {/* Link to Vercel deployment */}
                                     <a
                                         href="https://pareidolia.xiandewen.com"
@@ -313,6 +458,19 @@ export default function PareidoliaPage() {
                 </div>
 
             </div>
+        
+        {/* Mobile Sticky Action Button */}
+        <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/90 dark:bg-gray-950/90 backdrop-blur-lg border-t border-gray-200 dark:border-white/10 sm:hidden z-50 pb-8">
+            <a
+                href="https://pareidolia.xiandewen.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full px-6 py-4 bg-gray-900 text-white dark:bg-white dark:text-black rounded-xl font-bold shadow-lg shadow-indigo-500/20 active:scale-95 transition-transform flex items-center justify-center gap-2"
+            >
+                <span>Launch Experiment</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            </a>
         </div>
+    </div>
     )
 }

@@ -24,7 +24,7 @@ export default function BookingSaaSPage() {
           </nav>
         </header>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-12 pb-20">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 pb-36">
         
         {/* Title Section */}
         <div className="mb-12">
@@ -41,12 +41,51 @@ export default function BookingSaaSPage() {
         </div>
 
         {/* Hero Image / Block */}
-        <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-gray-900 dark:to-gray-800 rounded-[2.5rem] aspect-video md:aspect-[2.4/1] w-full mb-16 flex items-center justify-center border border-gray-100 dark:border-white/10 relative overflow-hidden group">
+        <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-gray-900 dark:to-gray-800 rounded-lg sm:rounded-3xl h-[28rem] sm:h-auto sm:aspect-video md:aspect-[2.4/1] w-full mb-16 flex items-center justify-center border border-gray-100 dark:border-white/10 relative overflow-hidden group">
              
              {/* Two-Tier Architecture Visualization */}
             <div className="absolute inset-0 flex items-center justify-center">
                  
-                 <div className="flex flex-col md:flex-row items-center gap-8 md:gap-24 relative z-10 w-full max-w-3xl px-8">
+                 {/* Mobile Optimized View (Vertical Stack) */}
+                 <div className="flex sm:hidden flex-col items-center justify-center gap-6 relative z-10 w-full h-full px-6 py-8">
+                     {/* Tier 1: Frontend */}
+                     <div className="w-full max-w-[280px] bg-white dark:bg-gray-800 rounded-xl border border-blue-100 dark:border-blue-900/30 p-5 flex items-center gap-4 shadow-xl shadow-blue-500/10 relative">
+                         {/* Decorative glowing dot */}
+                         <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-blue-500 animate-pulse"></div>
+                         
+                         <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-xl border border-blue-100 dark:border-blue-800">
+                             🖥️
+                         </div>
+                         <div>
+                             <div className="text-base font-bold text-gray-900 dark:text-white">Frontend Tier</div>
+                             <div className="text-xs text-blue-600 dark:text-blue-400 font-medium mt-0.5">Next.js • Vercel Edge</div>
+                         </div>
+                     </div>
+
+                     {/* Connection Pipe */}
+                     <div className="flex flex-col items-center justify-center h-16 w-full relative">
+                         <div className="absolute w-px h-full bg-gradient-to-b from-blue-200 via-gray-300 to-emerald-200 dark:from-blue-900 dark:via-gray-700 dark:to-emerald-900"></div>
+                         <div className="z-10 bg-white dark:bg-gray-900 px-3 py-1 rounded-full border border-gray-200 dark:border-gray-700 shadow-sm">
+                            <div className="text-[10px] font-mono font-bold text-gray-500 uppercase tracking-widest">JSON API</div>
+                         </div>
+                     </div>
+
+                     {/* Tier 2: Backend */}
+                     <div className="w-full max-w-[280px] bg-white dark:bg-gray-800 rounded-xl border border-emerald-100 dark:border-emerald-900/30 p-5 flex items-center gap-4 shadow-xl shadow-emerald-500/10 relative">
+                         <div className="absolute top-3 right-3 w-2 h-2 rounded-full bg-emerald-500 animate-pulse delay-75"></div>
+                         
+                         <div className="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center text-xl border border-emerald-100 dark:border-emerald-800">
+                             ⚙️
+                         </div>
+                         <div>
+                             <div className="text-base font-bold text-gray-900 dark:text-white">Backend Tier</div>
+                             <div className="text-xs text-emerald-600 dark:text-emerald-400 font-medium mt-0.5">Workers • D1 SQL</div>
+                         </div>
+                     </div>
+                 </div>
+
+                 {/* Desktop Optimized View (Horizontal Layout) */}
+                 <div className="hidden sm:flex flex-row items-center gap-8 md:gap-24 relative z-10 w-full max-w-3xl px-8">
                      
                      {/* Tier 1: Frontend */}
                      <div className="flex-1 w-full relative group/tier1">
@@ -67,7 +106,7 @@ export default function BookingSaaSPage() {
                      </div>
 
                      {/* Connection Stream */}
-                     <div className="hidden md:flex flex-col items-center justify-center gap-2 text-gray-300 dark:text-gray-600 w-24">
+                     <div className="flex flex-col items-center justify-center gap-2 text-gray-300 dark:text-gray-600 w-24">
                          <div className="flex gap-1 animate-pulse">
                              <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
                              <span className="w-2 h-2 rounded-full bg-blue-400"></span>
@@ -120,7 +159,7 @@ export default function BookingSaaSPage() {
                      
                      {/* Bento Grid Architecture */}
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-                         <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-100 dark:border-white/5">
+                         <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-lg sm:rounded-3xl border border-gray-100 dark:border-white/5">
                              <div className="w-10 h-10 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center mb-4 shadow-sm text-2xl">
                                  🎨
                              </div>
@@ -129,7 +168,7 @@ export default function BookingSaaSPage() {
                                  Next.js 15 + React 19. A responsive, server-rendered UI acting as a pure consumer of the backend API.
                              </p>
                          </div>
-                         <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-100 dark:border-white/5">
+                         <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-lg sm:rounded-3xl border border-gray-100 dark:border-white/5">
                              <div className="w-10 h-10 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center mb-4 shadow-sm text-2xl">
                                 ⚡
                              </div>
@@ -138,7 +177,7 @@ export default function BookingSaaSPage() {
                                  Cloudflare Workers + Hono. Provides a strongly typed, edge-deployed API layer that handles all business logic.
                              </p>
                          </div>
-                         <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-100 dark:border-white/5">
+                         <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-lg sm:rounded-3xl border border-gray-100 dark:border-white/5">
                              <div className="w-10 h-10 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center mb-4 shadow-sm text-2xl">
                                 💾
                              </div>
@@ -147,7 +186,7 @@ export default function BookingSaaSPage() {
                                  High-performance, edge-first SQL database with extensive relational capabilities.
                              </p>
                          </div>
-                         <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-100 dark:border-white/5">
+                         <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-lg sm:rounded-3xl border border-gray-100 dark:border-white/5">
                              <div className="w-10 h-10 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center mb-4 shadow-sm text-2xl">
                                 📦
                              </div>
@@ -164,7 +203,7 @@ export default function BookingSaaSPage() {
                     <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Scheduling made simple.</h3>
 
                     {/* CSS Art: Calendar & Scheduling */}
-                    <div className="bg-gray-100 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-inner p-4 md:p-8 mb-8 overflow-hidden relative min-h-[400px] flex flex-col">
+                    <div className="bg-gray-100 dark:bg-gray-900 rounded-lg sm:rounded-3xl border border-gray-200 dark:border-gray-800 p-4 md:p-8 mb-8 overflow-hidden relative min-h-[400px] flex flex-col">
                         
                         {/* Fake App Window */}
                         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 flex-1 flex flex-col overflow-hidden">
@@ -185,7 +224,7 @@ export default function BookingSaaSPage() {
                             
                             <div className="flex-1 flex overflow-hidden">
                                 {/* Sidebar */}
-                                <div className="w-16 border-r border-gray-100 dark:border-gray-700 flex flex-col items-center py-4 gap-4 bg-gray-50/50 dark:bg-black/20">
+                                <div className="hidden sm:flex w-16 border-r border-gray-100 dark:border-gray-700 flex-col items-center py-4 gap-4 bg-gray-50/50 dark:bg-black/20">
                                     <div className="w-8 h-8 rounded-md bg-emerald-100 text-emerald-600 flex items-center justify-center">📅</div>
                                     <div className="w-8 h-8 rounded-md hover:bg-white dark:hover:bg-white/10 flex items-center justify-center text-gray-400">👥</div>
                                     <div className="w-8 h-8 rounded-md hover:bg-white dark:hover:bg-white/10 flex items-center justify-center text-gray-400">⚙️</div>
@@ -196,15 +235,49 @@ export default function BookingSaaSPage() {
                                      {/* Calendar Header */}
                                      <div className="flex justify-between items-center mb-4">
                                          <h4 className="font-bold text-lg text-gray-800 dark:text-gray-200">February 2026</h4>
-                                         <div className="flex gap-2">
+                                         <div className="hidden sm:flex gap-2">
                                              <span className="px-3 py-1 rounded border border-gray-200 dark:border-gray-700 text-xs text-gray-600 dark:text-gray-400">Day</span>
                                              <span className="px-3 py-1 rounded bg-gray-900 text-white text-xs">Week</span>
                                              <span className="px-3 py-1 rounded border border-gray-200 dark:border-gray-700 text-xs text-gray-600 dark:text-gray-400">Month</span>
                                          </div>
                                      </div>
 
-                                     {/* Week Grid */}
-                                     <div className="grid grid-cols-5 gap-px bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden h-full">
+                                     {/* Mobile Agenda View */}
+                                     <div className="flex sm:hidden flex-col gap-3">
+                                         <div className="flex gap-4 p-3 bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 rounded-r-lg">
+                                             <div className="flex flex-col text-xs font-mono text-gray-500 dark:text-gray-400">
+                                                 <span>10:00</span>
+                                                 <span>11:00</span>
+                                             </div>
+                                             <div>
+                                                 <div className="text-sm font-bold text-gray-900 dark:text-white">Haircut</div>
+                                                 <div className="text-xs text-gray-500">Paul W.</div>
+                                             </div>
+                                         </div>
+                                          <div className="flex gap-4 p-3 bg-purple-50 dark:bg-purple-900/20 border-l-4 border-purple-500 rounded-r-lg">
+                                             <div className="flex flex-col text-xs font-mono text-gray-500 dark:text-gray-400">
+                                                 <span>12:00</span>
+                                                 <span>13:30</span>
+                                             </div>
+                                             <div>
+                                                 <div className="text-sm font-bold text-gray-900 dark:text-white">Consultation</div>
+                                                 <div className="text-xs text-gray-500">Internal</div>
+                                             </div>
+                                         </div>
+                                         <div className="flex gap-4 p-3 border-l-4 border-gray-200 dark:border-gray-700 rounded-r-lg opacity-50">
+                                              <div className="flex flex-col text-xs font-mono text-gray-500 dark:text-gray-400">
+                                                 <span>14:00</span>
+                                                 <span>14:45</span>
+                                             </div>
+                                             <div>
+                                                 <div className="text-sm font-bold text-gray-900 dark:text-white">Blocked</div>
+                                                
+                                             </div>
+                                         </div>
+                                     </div>
+
+                                     {/* Desktop Week Grid */}
+                                     <div className="hidden sm:grid grid-cols-5 gap-px bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden h-full">
                                          {['Mon 12', 'Tue 13', 'Wed 14', 'Thu 15', 'Fri 16'].map((day, i) => (
                                              <div key={day} className="bg-white dark:bg-gray-800 flex flex-col h-full relative group">
                                                  <div className="p-2 text-center text-[10px] font-bold text-gray-400 uppercase border-b border-gray-50 dark:border-gray-800">{day}</div>
@@ -277,7 +350,7 @@ export default function BookingSaaSPage() {
                          
                          {/* Repository hidden for private project */}
 
-                         <div className="pt-6 border-t border-gray-200 dark:border-white/10">
+                         <div className="hidden sm:block pt-6 border-t border-gray-200 dark:border-white/10">
                             <a
                               href="https://openbooking.xiandewen.com/business/test-business-1"
                               target="_blank"
@@ -294,6 +367,19 @@ export default function BookingSaaSPage() {
 
         </div>
 
+      </div>
+
+      {/* Mobile Sticky Action Button */}
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/90 dark:bg-gray-950/90 backdrop-blur-lg border-t border-gray-200 dark:border-white/10 sm:hidden z-50 pb-8">
+          <a
+              href="https://openbooking.xiandewen.com/business/test-business-1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full px-6 py-4 bg-emerald-600 text-white hover:bg-emerald-700 rounded-xl font-bold shadow-lg shadow-emerald-500/20 active:scale-95 transition-transform flex items-center justify-center gap-2"
+          >
+              <span>Launch Demo</span>
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+          </a>
       </div>
     </div>
   )
