@@ -24,7 +24,7 @@ export default function BookingSaaSPage() {
           </nav>
         </header>
 
-      <div className="max-w-4xl mx-auto px-6 md:px-12 pb-20">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 pb-20">
         
         {/* Title Section */}
         <div className="mb-12">
@@ -41,63 +41,216 @@ export default function BookingSaaSPage() {
         </div>
 
         {/* Hero Image / Block */}
-        <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-gray-900 dark:to-gray-800 rounded-[2.5rem] aspect-video w-full mb-16 flex items-center justify-center border border-gray-100 dark:border-white/10 shadow-sm">
-             <div className="text-center">
-                 <span className="block text-8xl mb-4">🌱</span>
-             </div>
+        <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-gray-900 dark:to-gray-800 rounded-[2.5rem] aspect-video md:aspect-[2.4/1] w-full mb-16 flex items-center justify-center border border-gray-100 dark:border-white/10 relative overflow-hidden group">
+             
+             {/* Two-Tier Architecture Visualization */}
+            <div className="absolute inset-0 flex items-center justify-center">
+                 
+                 <div className="flex flex-col md:flex-row items-center gap-8 md:gap-24 relative z-10 w-full max-w-3xl px-8">
+                     
+                     {/* Tier 1: Frontend */}
+                     <div className="flex-1 w-full relative group/tier1">
+                         <div className="absolute -inset-4 bg-blue-100/50 dark:bg-blue-900/10 rounded-3xl blur-xl opacity-0 group-hover/tier1:opacity-100 transition-opacity"></div>
+                         <div className="relative bg-white dark:bg-gray-800 rounded-2xl border border-blue-100 dark:border-blue-900/30 shadow-xl p-6 flex flex-col items-center gap-4">
+                             <div className="w-16 h-16 rounded-2xl bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-3xl shadow-sm border border-blue-100 dark:border-blue-800">
+                                 🖥️
+                             </div>
+                             <div className="text-center">
+                                 <h4 className="font-bold text-gray-900 dark:text-white">Frontend Tier</h4>
+                                 <p className="text-xs text-gray-400 font-mono mt-1">Next.js 15 • Vercel</p>
+                             </div>
+                             {/* Floating UI Elements */}
+                             <div className="absolute -top-6 -right-6 w-12 h-12 bg-white dark:bg-gray-700 rounded-lg shadow-lg border border-gray-100 dark:border-gray-600 flex items-center justify-center animate-bounce delay-100">
+                                 <div className="w-3/4 h-3/4 rounded bg-gray-100 dark:bg-gray-600"></div>
+                             </div>
+                         </div>
+                     </div>
+
+                     {/* Connection Stream */}
+                     <div className="hidden md:flex flex-col items-center justify-center gap-2 text-gray-300 dark:text-gray-600 w-24">
+                         <div className="flex gap-1 animate-pulse">
+                             <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+                             <span className="w-2 h-2 rounded-full bg-blue-400"></span>
+                             <span className="w-2 h-2 rounded-full bg-purple-400"></span>
+                         </div>
+                         <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
+                         <span className="text-[10px] font-mono tracking-widest uppercase">JSON API</span>
+                     </div>
+
+                     {/* Tier 2: Backend */}
+                     <div className="flex-1 w-full relative group/tier2">
+                         <div className="absolute -inset-4 bg-emerald-100/50 dark:bg-emerald-900/10 rounded-3xl blur-xl opacity-0 group-hover/tier2:opacity-100 transition-opacity"></div>
+                         <div className="relative bg-white dark:bg-gray-800 rounded-2xl border border-emerald-100 dark:border-emerald-900/30 shadow-xl p-6 flex flex-col items-center gap-4">
+                             <div className="w-16 h-16 rounded-2xl bg-emerald-50 dark:bg-emerald-900/20 flex items-center justify-center text-3xl shadow-sm border border-emerald-100 dark:border-emerald-800">
+                                 ⚙️
+                             </div>
+                             <div className="text-center">
+                                 <h4 className="font-bold text-gray-900 dark:text-white">Backend Tier</h4>
+                                 <p className="text-xs text-gray-400 font-mono mt-1">Workers • D1 • Hono</p>
+                             </div>
+                             {/* Floating Server Elements */}
+                             <div className="absolute -bottom-4 -left-4 w-12 h-12 bg-gray-900 dark:bg-black rounded-full shadow-lg border-2 border-emerald-400 flex items-center justify-center animate-spin-slow">
+                                 <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+                             </div>
+                         </div>
+                     </div>
+
+                 </div>
+
+                 {/* Background Grid */}
+                 <div className="absolute inset-0 z-0 opacity-10" style={{ backgroundImage: 'radial-gradient(#10b981 1px, transparent 1px)', backgroundSize: '24px 24px' }}></div>
+            </div>
         </div>
 
-         {/* Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        {/* Content */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
             
             {/* Main Column */}
-            <div className="md:col-span-2 space-y-12">
-                <section>
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Overview</h2>
+            <div className="md:col-span-8 space-y-16">
+                 <section>
+                    <h2 className="text-sm font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 mb-6 font-mono">01. The Platform</h2>
+                    <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Two-Tier Architecture.</h3>
                     <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
-                        A comprehensive SaaS booking platform that enables businesses to manage appointments,
-                        services, and customer relationships. Built with a modern tech stack featuring Next.js,
-                        Better Auth, and Material-UI, deployed on Cloudflare Workers for global performance.
+                        OpenBooking adopts a strict strict separation of concerns. A lightweight Next.js frontend consumes a dedicated backend API running on Cloudflare Workers. This separation allows for independent scaling, type-safe communication contracts, and a clean "Database-per-Tenant" isolation strategy at the API layer.
                     </p>
                 </section>
 
                 <section>
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Key Features</h2>
-                    <ul className="space-y-3 text-gray-600 dark:text-gray-300">
-                         {[
-                            "Multi-tenant architecture supporting multiple businesses",
-                            "Public booking pages for customer self-scheduling",
-                            "Drag-and-drop calendar interface",
-                            "Service catalog with pricing and duration management",
-                            "Customer relationship management (CRM)",
-                            "Real-time availability checking",
-                            "Email notifications and reminders",
-                            "Business analytics and reporting",
-                            "Timezone-aware scheduling",
-                            "Mobile-responsive design"
-                         ].map((feature, i) => (
-                            <li key={i} className="flex items-start">
-                                <svg className="w-5 h-5 mr-3 text-emerald-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                                <span>{feature}</span>
-                            </li>
-                         ))}
-                    </ul>
+                     <h2 className="text-sm font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 mb-6 font-mono">02. Architecture</h2>
+                     
+                     {/* Bento Grid Architecture */}
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                         <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-100 dark:border-white/5">
+                             <div className="w-10 h-10 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center mb-4 shadow-sm text-2xl">
+                                 🎨
+                             </div>
+                             <h4 className="font-bold text-gray-900 dark:text-white mb-2">Frontend Tier</h4>
+                             <p className="text-sm text-gray-500">
+                                 Next.js 15 + React 19. A responsive, server-rendered UI acting as a pure consumer of the backend API.
+                             </p>
+                         </div>
+                         <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-100 dark:border-white/5">
+                             <div className="w-10 h-10 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center mb-4 shadow-sm text-2xl">
+                                ⚡
+                             </div>
+                             <h4 className="font-bold text-gray-900 dark:text-white mb-2">Backend Tier</h4>
+                             <p className="text-sm text-gray-500">
+                                 Cloudflare Workers + Hono. Provides a strongly typed, edge-deployed API layer that handles all business logic.
+                             </p>
+                         </div>
+                         <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-100 dark:border-white/5">
+                             <div className="w-10 h-10 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center mb-4 shadow-sm text-2xl">
+                                💾
+                             </div>
+                             <h4 className="font-bold text-gray-900 dark:text-white mb-2">Cloudflare D1</h4>
+                             <p className="text-sm text-gray-500">
+                                 High-performance, edge-first SQL database with extensive relational capabilities.
+                             </p>
+                         </div>
+                         <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-100 dark:border-white/5">
+                             <div className="w-10 h-10 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center mb-4 shadow-sm text-2xl">
+                                📦
+                             </div>
+                             <h4 className="font-bold text-gray-900 dark:text-white mb-2">Cloudflare R2</h4>
+                             <p className="text-sm text-gray-500">
+                                 S3-compatible object storage for managing business assets, images, and user uploads at the edge without egress fees.
+                             </p>
+                         </div>
+                     </div>
                 </section>
 
                 <section>
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Architecture Highlights</h2>
-                     <ul className="space-y-3 text-gray-600 dark:text-gray-300">
+                    <h2 className="text-sm font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 mb-6 font-mono">03. User Experience</h2>
+                    <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Scheduling made simple.</h3>
+
+                    {/* CSS Art: Calendar & Scheduling */}
+                    <div className="bg-gray-100 dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800 shadow-inner p-4 md:p-8 mb-8 overflow-hidden relative min-h-[400px] flex flex-col">
+                        
+                        {/* Fake App Window */}
+                        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 flex-1 flex flex-col overflow-hidden">
+                            {/* App Header */}
+                            <div className="h-12 border-b border-gray-100 dark:border-gray-700 flex items-center justify-between px-4 bg-white dark:bg-gray-800">
+                                <div className="flex items-center gap-3">
+                                    <div className="w-8 h-8 bg-emerald-500 rounded-md flex items-center justify-center text-white font-bold text-xs">OB</div>
+                                    <div className="flex flex-col">
+                                        <span className="text-xs font-bold text-gray-900 dark:text-white">Acme Salon</span>
+                                        <span className="text-[10px] text-gray-500">Dashboard</span>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <div className="w-24 h-8 bg-gray-100 dark:bg-gray-700 rounded text-xs flex items-center justify-center text-gray-500">Search...</div>
+                                    <div className="w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xs font-bold">JS</div>
+                                </div>
+                            </div>
+                            
+                            <div className="flex-1 flex overflow-hidden">
+                                {/* Sidebar */}
+                                <div className="w-16 border-r border-gray-100 dark:border-gray-700 flex flex-col items-center py-4 gap-4 bg-gray-50/50 dark:bg-black/20">
+                                    <div className="w-8 h-8 rounded-md bg-emerald-100 text-emerald-600 flex items-center justify-center">📅</div>
+                                    <div className="w-8 h-8 rounded-md hover:bg-white dark:hover:bg-white/10 flex items-center justify-center text-gray-400">👥</div>
+                                    <div className="w-8 h-8 rounded-md hover:bg-white dark:hover:bg-white/10 flex items-center justify-center text-gray-400">⚙️</div>
+                                </div>
+
+                                {/* Main Calendar */}
+                                <div className="flex-1 p-4 relative overflow-hidden bg-white dark:bg-gray-800">
+                                     {/* Calendar Header */}
+                                     <div className="flex justify-between items-center mb-4">
+                                         <h4 className="font-bold text-lg text-gray-800 dark:text-gray-200">February 2026</h4>
+                                         <div className="flex gap-2">
+                                             <span className="px-3 py-1 rounded border border-gray-200 dark:border-gray-700 text-xs text-gray-600 dark:text-gray-400">Day</span>
+                                             <span className="px-3 py-1 rounded bg-gray-900 text-white text-xs">Week</span>
+                                             <span className="px-3 py-1 rounded border border-gray-200 dark:border-gray-700 text-xs text-gray-600 dark:text-gray-400">Month</span>
+                                         </div>
+                                     </div>
+
+                                     {/* Week Grid */}
+                                     <div className="grid grid-cols-5 gap-px bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden h-full">
+                                         {['Mon 12', 'Tue 13', 'Wed 14', 'Thu 15', 'Fri 16'].map((day, i) => (
+                                             <div key={day} className="bg-white dark:bg-gray-800 flex flex-col h-full relative group">
+                                                 <div className="p-2 text-center text-[10px] font-bold text-gray-400 uppercase border-b border-gray-50 dark:border-gray-800">{day}</div>
+                                                 <div className="flex-1 relative">
+                                                     {/* Time Slots */}
+                                                     {[9, 10, 11, 12, 13, 14, 15].map(time => (
+                                                         <div key={time} className="h-10 border-b border-gray-50 dark:border-gray-800/50"></div>
+                                                     ))}
+                                                     
+                                                     {/* Events */}
+                                                     {i === 0 && (
+                                                         <div className="absolute top-10 left-1 right-1 h-20 bg-blue-50 dark:bg-blue-900/40 border-l-2 border-blue-400 p-1">
+                                                             <div className="text-[9px] font-bold text-blue-700 dark:text-blue-300">Haircut</div>
+                                                             <div className="text-[8px] text-blue-500">10:00 - 11:00</div>
+                                                         </div>
+                                                     )}
+                                                     {i === 2 && (
+                                                         <div className="absolute top-30 left-1 right-1 h-30 bg-purple-50 dark:bg-purple-900/40 border-l-2 border-purple-400 p-1 shadow-sm transform hover:scale-[1.02] transition-transform">
+                                                             <div className="text-[9px] font-bold text-purple-700 dark:text-purple-300">Consultation</div>
+                                                             <div className="text-[8px] text-purple-500">12:00 - 1:30</div>
+                                                         </div>
+                                                     )}
+                                                     {i === 4 && (
+                                                         <div className="absolute top-5 left-1 right-1 bottom-5 bg-stripes-gray opacity-10 pointer-events-none"></div>
+                                                     )}
+                                                 </div>
+                                             </div>
+                                         ))}
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                          {[
-                            "Monorepo structure with frontend and backend separation",
-                            "Edge-first deployment on Cloudflare's global network",
-                            "Database-per-tenant isolation for security",
-                            "Modern authentication with Better Auth",
-                            "Optimistic UI updates for instant feedback",
-                            "Server-side rendering for SEO and performance"
+                            "Multi-tenant architecture",
+                            "Public booking pages",
+                            "Drag-and-drop calendar",
+                            "Services & Pricing catalog",
+                            "CRM & Analytics",
+                            "Timezone support"
                          ].map((feature, i) => (
-                            <li key={i} className="flex items-start">
-                                <svg className="w-5 h-5 mr-3 text-amber-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                                <span>{feature}</span>
+                            <li key={i} className="flex items-center p-3">
+                                <span className="mr-3 text-emerald-500 font-bold px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/30 rounded text-xs">OK</span>
+                                <span className="text-gray-700 dark:text-gray-300 font-medium">{feature}</span>
                             </li>
                          ))}
                     </ul>
@@ -105,30 +258,37 @@ export default function BookingSaaSPage() {
             </div>
 
             {/* Sidebar Column */}
-            <div className="space-y-8">
-                 <div>
-                    <h3 className="text-sm font-bold uppercase tracking-wider text-gray-400 mb-4">Tech Stack</h3>
-                    <div className="flex flex-wrap gap-2">
-                        {[
-                            "Next.js 15", "React 18", "TypeScript", "Better Auth", 
-                            "Material-UI", "Turso (LibSQL)", "Cloudflare Workers", "Turborepo"
-                        ].map((tech) => (
-                            <span key={tech} className="px-3 py-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-white/10 rounded-full text-xs font-semibold text-gray-600 dark:text-gray-300">
-                                {tech}
-                            </span>
-                        ))}
-                    </div>
-                 </div>
+            <div className="md:col-span-4 space-y-8">
+                 <div className="sticky top-32">
+                     <div className="p-6 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5 space-y-8">
+                         <div>
+                            <h3 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-4">Tech Stack</h3>
+                            <div className="flex flex-wrap gap-2">
+                                {[
+                                    "Next.js 15", "React 19", "Better Auth", 
+                                    "MUI", "Turso", "Cloudflare", "Turborepo"
+                                ].map((tech) => (
+                                    <span key={tech} className="px-3 py-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-white/10 rounded-lg text-xs font-semibold text-gray-600 dark:text-gray-300">
+                                        {tech}
+                                    </span>
+                                ))}
+                            </div>
+                         </div>
+                         
+                         {/* Repository hidden for private project */}
 
-                 <div className="pt-6 border-t border-gray-200 dark:border-white/10">
-                    <a
-                      href="https://openbooking.xiandewen.com/business/test-business-1"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block w-full text-center px-6 py-4 bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 rounded-xl font-bold transition-transform hover:scale-[1.02]"
-                    >
-                      View Live Demo
-                    </a>
+                         <div className="pt-6 border-t border-gray-200 dark:border-white/10">
+                            <a
+                              href="https://openbooking.xiandewen.com/business/test-business-1"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="w-full px-6 py-4 bg-emerald-600 text-white hover:bg-emerald-700 rounded-xl font-bold transition-transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2"
+                            >
+                              <span>Launch Demo</span>
+                              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                            </a>
+                         </div>
+                     </div>
                  </div>
             </div>
 
