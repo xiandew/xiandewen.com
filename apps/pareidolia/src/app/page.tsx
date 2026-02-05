@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Download, RefreshCw, Wand2, LogIn, LogOut, Loader2 } from "lucide-react";
+import { Download, RefreshCw, Wand2, LogIn, LogOut, Loader2, X } from "lucide-react";
 import clsx from "clsx";
 import {
   signInWithPopup,
@@ -196,27 +196,56 @@ export default function Page() {
     await signOut(auth);
   };
 
-  const startDrawing = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  const startDrawing = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault(); // Prevent default touch actions like scrolling
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    let clientX, clientY;
+
+    if ('touches' in e) {
+      clientX = e.touches[0].clientX;
+      clientY = e.touches[0].clientY;
+    } else {
+      clientX = (e as React.MouseEvent).clientX;
+      clientY = (e as React.MouseEvent).clientY;
+    }
+
+    // Scale coordinates to handle CSS resizing
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+
+    const x = (clientX - rect.left) * scaleX;
+    const y = (clientY - rect.top) * scaleY;
 
     setCurrentStroke([[x, y]]);
     setIsDrawing(true);
   };
 
-  const draw = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    if (!isDrawing || currentStroke.length === 0) return;
+  const draw = (e: React.MouseEvent<HTMLCanvasElement> | React.TouchEvent<HTMLCanvasElement>) => {
+    e.preventDefault();
+    if (!isDrawing) return; // Removed currentStroke.length check to allow single dot start
 
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    let clientX, clientY;
+
+    if ('touches' in e) {
+      clientX = e.touches[0].clientX;
+      clientY = e.touches[0].clientY;
+    } else {
+      clientX = (e as React.MouseEvent).clientX;
+      clientY = (e as React.MouseEvent).clientY;
+    }
+
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+
+    const x = (clientX - rect.left) * scaleX;
+    const y = (clientY - rect.top) * scaleY;
 
     setCurrentStroke(prev => [...prev, [x, y]]);
   };
@@ -479,11 +508,11 @@ export default function Page() {
   };
 
   return (
-    <div className="flex h-screen bg-background text-foreground font-sans overflow-hidden">
+    <div className="flex flex-col-reverse md:flex-row h-screen bg-background text-foreground font-sans overflow-hidden">
       {/* Sidebar - Controls */}
-      <aside className="w-80 flex flex-col border-r border-border bg-panel overflow-y-auto">
-        {/* Header */}
-        <div className="p-6 border-b border-border">
+      <aside className="w-full md:w-80 h-auto md:h-full flex flex-col border-t md:border-r md:border-t-0 border-border bg-panel overflow-hidden flex-shrink-0 z-20 shadow-[-10px_0_20px_rgba(0,0,0,0.1)] md:shadow-none">
+        {/* Header (Desktop Only) */}
+        <div className="hidden md:block p-6 border-b border-border">
           <h1 className="text-xl font-bold tracking-tight text-foreground flex items-center gap-2">
             <span className="w-6 h-6 rounded bg-blue-600"></span>
             Pareidolia
@@ -493,19 +522,44 @@ export default function Page() {
           </p>
         </div>
 
-        {/* Tool Controls */}
-        <div className="p-6 flex flex-col gap-8 flex-1">
+        {/* Scrollable Content (Prompts) - Desktop Only */}
+        <div className="hidden md:block flex-1 overflow-y-auto p-4 md:p-6 pb-0">
 
           {/* Prompts */}
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-2 md:gap-3">
             <label className="text-[10px] font-bold uppercase tracking-wider text-stone-500 font-mono">Target Subject</label>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="flex overflow-x-auto pb-2 gap-2 md:grid md:grid-cols-2 md:pb-0 scrollbar-hide">
               {PREDEFINED_PROMPTS.map(p => (
                 <button
                   key={p}
                   onClick={() => setPromptText(p)}
                   className={clsx(
-                    "px-3 py-2 text-xs text-left rounded-md transition-all font-mono",
+                    "px-3 py-2 text-xs text-left rounded-md transition-all font-mono whitespace-nowrap flex-shrink-0 md:whitespace-normal md:flex-shrink-1",
+                    promptText === p
+                      ? "bg-blue-600/10 text-blue-600 dark:text-blue-400 border border-blue-600/20"
+                      : "bg-border/50 text-stone-500 border border-transparent hover:bg-border hover:text-foreground"
+                  )}
+                >
+                  {p}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Fixed Bottom Controls (Actions & User) */}
+        <div className="p-4 md:p-6 bg-panel border-t border-border z-10 shrink-0 shadow-[0_-5px_20px_rgba(0,0,0,0.05)] md:shadow-none">
+
+          {/* Mobile Prompts Row (Hidden on Desktop) */}
+          <div className="md:hidden flex flex-col gap-2 mb-4">
+            <label className="text-[10px] font-bold uppercase tracking-wider text-stone-500 font-mono">Target Subject</label>
+            <div className="flex overflow-x-auto pb-2 gap-2 scrollbar-hide">
+              {PREDEFINED_PROMPTS.map(p => (
+                <button
+                  key={p}
+                  onClick={() => setPromptText(p)}
+                  className={clsx(
+                    "px-3 py-2 text-xs text-left rounded-md transition-all font-mono whitespace-nowrap flex-shrink-0",
                     promptText === p
                       ? "bg-blue-600/10 text-blue-600 dark:text-blue-400 border border-blue-600/20"
                       : "bg-border/50 text-stone-500 border border-transparent hover:bg-border hover:text-foreground"
@@ -517,80 +571,103 @@ export default function Page() {
             </div>
           </div>
 
-          {/* Actions */}
-          <div className="flex flex-col gap-2">
-            <button
-              onClick={clearCanvas}
-              className="flex items-center justify-center gap-2 w-full py-2.5 text-xs font-semibold uppercase tracking-wider text-stone-500 hover:text-foreground hover:bg-border rounded transition-colors"
-            >
-              <RefreshCw className="w-4 h-4" />
-              Reset Canvas
-            </button>
-
-            <button
-              onClick={handleGenerate}
-              disabled={Boolean(isGenerating || (user && usageCount >= MAX_USAGE))}
-              className="flex items-center justify-center gap-2 w-full py-3 bg-blue-600 hover:bg-blue-500 text-white rounded font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-[0.98]"
-            >
-              {!user ? (
-                <>
-                  <LogIn className="w-4 h-4" />
-                  <span>Sign in to Generate</span>
-                </>
-              ) : (
-                <>
-                  <Wand2 className="w-4 h-4" />
-                  <span>Generate</span>
-                </>
-              )}
-            </button>
+          <div className="flex flex-col gap-2 mb-2 md:mb-4">
+            <div className="flex gap-2 md:flex-col">
+              <button
+                onClick={clearCanvas}
+                className="flex-1 md:flex-none flex items-center justify-center gap-2 py-2.5 text-xs font-semibold uppercase tracking-wider text-stone-500 hover:text-foreground hover:bg-border rounded transition-colors border border-border/50"
+              >
+                <RefreshCw className="w-4 h-4" />
+                Reset
+              </button>
+              {/* Generate Button - Main Action */}
+              <button
+                onClick={handleGenerate}
+                disabled={Boolean(isGenerating || (user && usageCount >= MAX_USAGE))}
+                className="flex-[2] md:flex-none flex items-center justify-center gap-2 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-[0.98]"
+              >
+                {!user ? (
+                  <>
+                    <LogIn className="w-4 h-4" />
+                    <span>Sign in</span>
+                  </>
+                ) : (
+                  <>
+                    <Wand2 className="w-4 h-4" />
+                    <span>Generate</span>
+                  </>
+                )}
+              </button>
+            </div>
           </div>
 
-          {/* Footer Spacer */}
-          <div className="mt-auto">
-            {/* User Status Footer */}
-            {!authLoading && user && (
-              <div className="pt-6 border-t border-border flex items-center justify-between">
-                <div className="flex flex-col">
-                  <span className="text-sm font-medium text-foreground truncate max-w-[140px]">{user.displayName}</span>
-                  <span className={clsx("text-xs font-mono", usageCount >= MAX_USAGE ? "text-red-400" : "text-stone-500")}>
-                    {usageCount}/{MAX_USAGE} quota used
-                  </span>
-                </div>
-                <button onClick={handleLogout} className="p-2 hover:bg-border rounded-md transition-colors text-stone-500 hover:text-foreground" title="Sign Out">
-                  <LogOut className="w-4 h-4" />
-                </button>
+          {/* User Status Footer - Desktop Only */}
+          {!authLoading && user && (
+            <div className="hidden md:flex pt-2 border-t border-border items-center justify-between">
+              <div className="flex flex-col">
+                <span className="text-xs font-medium text-foreground truncate max-w-[140px]">{user.displayName}</span>
+                <span className={clsx("text-[10px] font-mono", usageCount >= MAX_USAGE ? "text-red-400" : "text-stone-500")}>
+                  {usageCount}/{MAX_USAGE} used
+                </span>
               </div>
-            )}
-          </div>
+              <button onClick={handleLogout} className="p-2 hover:bg-border rounded-md transition-colors text-stone-500 hover:text-foreground" title="Sign Out">
+                <LogOut className="w-4 h-4" />
+              </button>
+            </div>
+          )}
         </div>
       </aside>
 
       {/* Main Canvas Area */}
-      <main className="flex-1 relative flex flex-col items-center justify-center bg-background p-8 overflow-hidden">
-        {/* Top Status Bar */}
-        <div className="absolute top-6 left-8 right-8 flex justify-between items-start pointer-events-none">
+      <main className="flex-1 relative flex flex-col items-center justify-center bg-background p-0 md:p-8 overflow-hidden">
+
+        {/* Mobile Header - Absolute Top Center */}
+        <div className="md:hidden absolute top-0 left-0 right-0 h-14 flex items-center justify-between px-4 bg-background/95 backdrop-blur border-b border-border z-20 shadow-sm">
+          <h1 className="text-sm font-bold tracking-tight text-foreground flex items-center gap-2">
+            <span className="w-4 h-4 rounded bg-blue-600"></span>
+            Pareidolia
+          </h1>
+
+          {/* Mobile User Status */}
+          {!authLoading && user && (
+            <div className="flex items-center gap-3">
+              <div className="flex flex-col items-end leading-none">
+                <span className="text-[10px] font-medium text-foreground truncate max-w-[100px]">{user.displayName}</span>
+                <span className={clsx("text-[9px] font-mono mt-0.5", usageCount >= MAX_USAGE ? "text-red-400" : "text-stone-500")}>
+                  {usageCount}/{MAX_USAGE} used
+                </span>
+              </div>
+              <button onClick={handleLogout} className="p-1 hover:bg-stone-100 dark:hover:bg-stone-800 rounded text-stone-500" title="Sign Out">
+                <LogOut className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          )}
+        </div>
+
+        {/* Desktop Status Bar */}
+        <div className="hidden md:flex absolute top-6 left-8 right-8 justify-between items-start pointer-events-none z-10">
           <div className="flex flex-col gap-1">
             <h2 className="text-2xl font-bold text-foreground tracking-tight">Canvas</h2>
             <p className="text-stone-500 font-mono text-xs">
               Draw your idea. The AI will render it.
             </p>
           </div>
-
-
-          <div className="flex gap-4 pointer-events-auto">
-          </div>
+          <div className="flex gap-4 pointer-events-auto"></div>
         </div>
 
         {/* Canvas Wrapper */}
-        <div className="relative group rounded-lg border-2 border-dotted border-stone-300 dark:border-stone-700 p-2">
+        <div className="relative group w-full max-w-[800px] aspect-[4/3] md:rounded-lg border-0 md:border-2 md:border-dotted border-stone-300 dark:border-stone-700 overflow-hidden md:shadow-sm">
           <canvas
             ref={canvasRef}
             onMouseDown={startDrawing}
             onMouseMove={draw}
             onMouseUp={stopDrawing}
             onMouseLeave={stopDrawing}
-            className="bg-white cursor-crosshair touch-none rounded-sm"
+            onTouchStart={startDrawing}
+            onTouchMove={draw}
+            onTouchEnd={stopDrawing}
+            style={{ width: '100%', height: '100%', touchAction: 'none' }}
+            className="bg-white cursor-crosshair touch-none rounded-sm block"
           />
 
           {/* Loading Overlay */}
@@ -623,17 +700,27 @@ export default function Page() {
           <div className="absolute top-8 right-8 w-64 bg-panel border border-border p-2 rounded shadow-xl animate-in fade-in slide-in-from-right-8 z-30">
             <div className="flex justify-between items-center mb-2 px-1">
               <span className="text-[10px] font-bold uppercase text-stone-500">Result</span>
-              <button
-                onClick={() => {
-                  const link = document.createElement('a');
-                  link.download = `pareidolia-${Date.now()}.png`;
-                  link.href = generatedImage;
-                  link.click();
-                }}
-                className="text-stone-400 hover:text-foreground"
-              >
-                <Download className="w-3 h-3" />
-              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={() => {
+                    const link = document.createElement('a');
+                    link.download = `pareidolia-${Date.now()}.png`;
+                    link.href = generatedImage;
+                    link.click();
+                  }}
+                  className="text-stone-400 hover:text-foreground"
+                  title="Download"
+                >
+                  <Download className="w-3 h-3" />
+                </button>
+                <button
+                  onClick={() => setGeneratedImage(null)}
+                  className="text-stone-400 hover:text-foreground"
+                  title="Close"
+                >
+                  <X className="w-3 h-3" />
+                </button>
+              </div>
             </div>
             <img src={generatedImage} alt="Generated" className="w-full rounded border border-border bg-background" />
           </div>
