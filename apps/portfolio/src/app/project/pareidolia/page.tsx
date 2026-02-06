@@ -445,7 +445,7 @@ export default function PareidoliaPage() {
                                         href="https://pareidolia.xiandewen.com"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="w-full px-6 py-4 bg-gray-900 text-white dark:bg-white dark:text-black rounded-xl font-bold transition-transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2"
+                                        className="w-full px-6 py-4 bg-gray-900 text-white dark:bg-white dark:text-black rounded-xl font-bold transition-colors flex items-center justify-center gap-2"
                                     >
                                         <span>Launch Experiment</span>
                                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
@@ -465,7 +465,7 @@ export default function PareidoliaPage() {
                 href="https://pareidolia.xiandewen.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full px-6 py-4 bg-gray-900 text-white dark:bg-white dark:text-black rounded-xl font-bold shadow-lg shadow-indigo-500/20 active:scale-95 transition-transform flex items-center justify-center gap-2"
+                className="w-full px-6 py-4 bg-gray-900 text-white dark:bg-white dark:text-black rounded-xl font-bold shadow-lg shadow-indigo-500/20 transition-colors flex items-center justify-center gap-2"
             >
                 <span>Launch Experiment</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>

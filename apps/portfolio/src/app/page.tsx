@@ -391,7 +391,7 @@ export default function HomePage() {
                       {/* Top Bar with Tenant Switcher */}
                       <div className="h-12 border-b border-gray-100 dark:border-gray-800 flex items-center px-4 justify-between bg-white dark:bg-gray-900">
                         <div className="flex items-center gap-2">
-                          <div className="w-6 h-6 rounded bg-emerald-500"></div>
+                          <div className="w-6 h-6 rounded-lg bg-emerald-500"></div>
                           <div className="w-24 h-2 bg-gray-100 dark:bg-gray-800 rounded-full"></div>
                         </div>
                         <div className="flex -space-x-2">

@@ -1,4 +1,4 @@
-# xiandewen.com Monorepo
+# xiandewen.com
 
 A high-signal engineering monorepo containing a suite of production-grade applications.
 

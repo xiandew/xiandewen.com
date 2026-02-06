@@ -355,7 +355,7 @@ export default function BookingSaaSPage() {
                               href="https://openbooking.xiandewen.com/business/test-business-1"
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="w-full px-6 py-4 bg-emerald-600 text-white hover:bg-emerald-700 rounded-xl font-bold transition-transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2"
+                              className="w-full px-6 py-4 bg-emerald-600 text-white hover:bg-emerald-700 rounded-xl font-bold transition-colors flex items-center justify-center gap-2"
                             >
                               <span>Launch Demo</span>
                               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
@@ -375,7 +375,7 @@ export default function BookingSaaSPage() {
               href="https://openbooking.xiandewen.com/business/test-business-1"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full px-6 py-4 bg-emerald-600 text-white hover:bg-emerald-700 rounded-xl font-bold shadow-lg shadow-emerald-500/20 active:scale-95 transition-transform flex items-center justify-center gap-2"
+              className="w-full px-6 py-4 bg-emerald-600 text-white hover:bg-emerald-700 rounded-xl font-bold shadow-lg shadow-emerald-500/20 transition-colors flex items-center justify-center gap-2"
           >
               <span>Launch Demo</span>
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
