@@ -4,7 +4,7 @@ export default function BookingLedgerPage() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-[#E0E7FF] dark:selection:bg-indigo-900">
        {/* Header / Nav */}
-       <header className="flex flex-row justify-between items-center mb-16 sm:mb-24 sticky top-0 z-50 bg-background/80 backdrop-blur-md py-4 px-6 md:px-12">
+       <header className="flex flex-row justify-between items-center mb-16 sm:mb-24 sticky top-0 z-50 bg-background/80 backdrop-blur-md py-4 px-6 lg:px-12">
           <div className="flex items-center gap-2">
              <Link href="/" className="font-bold text-lg hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Paul (Xiande) Wen</Link>
           </div>
@@ -24,7 +24,7 @@ export default function BookingLedgerPage() {
           </nav>
         </header>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-12 pb-36">
+      <div className="max-w-6xl mx-auto px-6 lg:px-12 pb-36">
         
         {/* Title Section */}
         <div className="mb-12">
@@ -41,7 +41,7 @@ export default function BookingLedgerPage() {
         </div>
 
         {/* Hero Image / Block */}
-        <div className="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 rounded-lg sm:rounded-3xl h-[28rem] sm:h-auto sm:aspect-video md:aspect-[2.4/1] w-full mb-16 flex items-center justify-center border border-gray-100 dark:border-white/10 relative overflow-hidden group">
+        <div className="bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-gray-900 dark:to-gray-800 rounded-lg sm:rounded-3xl h-[28rem] sm:h-auto sm:aspect-video lg:aspect-[2.4/1] w-full mb-16 flex items-center justify-center border border-gray-100 dark:border-white/10 relative overflow-hidden group">
              
              {/* Abstract Ledger Art */}
              <div className="relative w-full h-full flex items-center justify-center">
@@ -110,7 +110,7 @@ export default function BookingLedgerPage() {
                 </div>
 
                 {/* Main UI Composition (Desktop) */}
-                <div className="hidden sm:flex items-center gap-6 z-10 scale-90 md:scale-110 transition-transform duration-500">
+                <div className="hidden sm:flex items-center gap-6 z-10 scale-90 lg:scale-110 transition-transform duration-500">
                     
                     {/* The List View (Background Layer) */}
                     <div className="w-48 h-60 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-xl -rotate-6 translate-x-12 opacity-80 flex flex-col overflow-hidden">
@@ -168,10 +168,10 @@ export default function BookingLedgerPage() {
         </div>
 
         {/* Content */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             
             {/* Main Column */}
-            <div className="md:col-span-8 space-y-16">
+            <div className="lg:col-span-8 space-y-16">
                 <section>
                     <h2 className="text-sm font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-6 font-mono">01. The Problem</h2>
                     <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Spreadsheets weren't enough.</h3>
@@ -282,7 +282,7 @@ export default function BookingLedgerPage() {
             </div>
 
             {/* Sidebar Column */}
-            <div className="md:col-span-4 space-y-8">
+            <div className="lg:col-span-4 space-y-8">
                  <div className="sticky top-32">
                      <div className="p-6 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5 space-y-8">
                          <div>

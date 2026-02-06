@@ -4,7 +4,7 @@ export default function PareidoliaPage() {
     return (
         <div className="min-h-screen bg-background text-foreground font-sans selection:bg-fuchsia-100 dark:selection:bg-fuchsia-900">
             {/* Header / Nav */}
-            <header className="flex flex-row justify-between items-center mb-16 sm:mb-24 sticky top-0 z-50 bg-background/80 backdrop-blur-md py-4 px-6 md:px-12">
+            <header className="flex flex-row justify-between items-center mb-16 sm:mb-24 sticky top-0 z-50 bg-background/80 backdrop-blur-md py-4 px-6 lg:px-12">
                 <div className="flex items-center gap-2">
                     <Link href="/" className="font-bold text-lg hover:text-fuchsia-600 dark:hover:text-fuchsia-400 transition-colors">Paul (Xiande) Wen</Link>
                 </div>
@@ -24,7 +24,7 @@ export default function PareidoliaPage() {
                 </nav>
             </header>
 
-            <div className="max-w-6xl mx-auto px-6 md:px-12 pb-36">
+            <div className="max-w-6xl mx-auto px-6 lg:px-12 pb-36">
 
                 {/* Title Section */}
                 <div className="mb-12">
@@ -41,7 +41,7 @@ export default function PareidoliaPage() {
                 </div>
 
                 {/* Hero Image / Block */}
-                <div className="bg-gradient-to-br from-fuchsia-50 via-purple-50 to-white dark:from-gray-900 dark:to-gray-800 rounded-lg sm:rounded-3xl h-[28rem] sm:h-auto sm:aspect-video md:aspect-[2.4/1] w-full mb-16 flex items-center justify-center border border-gray-100 dark:border-white/10 relative overflow-hidden group">
+                <div className="bg-gradient-to-br from-fuchsia-50 via-purple-50 to-white dark:from-gray-900 dark:to-gray-800 rounded-lg sm:rounded-3xl h-[28rem] sm:h-auto sm:aspect-video lg:aspect-[2.4/1] w-full mb-16 flex items-center justify-center border border-gray-100 dark:border-white/10 relative overflow-hidden group">
                     {/* CSS Art: Sketch to Image Concept - Mobile (Futuristic Interface) */}
                     <div className="flex sm:hidden flex-col items-center justify-center w-full h-full p-4 relative overflow-hidden">
                         
@@ -114,9 +114,9 @@ export default function PareidoliaPage() {
                     </div>
 
                     {/* CSS Art: Sketch to Image Concept - Desktop */}
-                    <div className="hidden sm:flex items-center gap-8 md:gap-16 scale-75 md:scale-100 transition-transform duration-500">
+                    <div className="hidden sm:flex items-center gap-8 lg:gap-16 scale-75 lg:scale-100 transition-transform duration-500">
                         {/* The "Sketch" */}
-                        <div className="relative w-32 h-32 md:w-40 md:h-40 border-4 border-dashed border-gray-300 dark:border-gray-600 rounded-3xl flex items-center justify-center">
+                        <div className="relative w-32 h-32 lg:w-40 lg:h-40 border-4 border-dashed border-gray-300 dark:border-gray-600 rounded-3xl flex items-center justify-center">
                             <div className="w-16 h-16 border-4 border-gray-300 dark:border-gray-600 rounded-full"></div>
                             <div className="absolute -top-6 -left-6 w-12 h-12 border-2 border-gray-300 dark:border-gray-600 rounded-full border-dashed animate-spin-slow" style={{ animationDuration: '10s' }}></div>
                         </div>
@@ -130,7 +130,7 @@ export default function PareidoliaPage() {
                         </div>
 
                         {/* The "Result" */}
-                        <div className="relative w-32 h-32 md:w-40 md:h-40 bg-white dark:bg-gray-800 rounded-3xl shadow-2xl shadow-fuchsia-500/20 flex items-center justify-center overflow-hidden border border-gray-100 dark:border-gray-700">
+                        <div className="relative w-32 h-32 lg:w-40 lg:h-40 bg-white dark:bg-gray-800 rounded-3xl shadow-2xl shadow-fuchsia-500/20 flex items-center justify-center overflow-hidden border border-gray-100 dark:border-gray-700">
                             <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-500 to-purple-600 opacity-10"></div>
                             <div className="w-16 h-16 bg-gradient-to-br from-fuchsia-400 to-purple-500 rounded-full shadow-lg transform group-hover:scale-110 transition-transform duration-500"></div>
                             {/* Decorative elements */}
@@ -142,10 +142,10 @@ export default function PareidoliaPage() {
                 </div>
 
                 {/* Content */}
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
                     {/* Main Column */}
-                    <div className="md:col-span-8 space-y-16">
+                    <div className="lg:col-span-8 space-y-16">
                         <section>
                             <h2 className="text-sm font-bold uppercase tracking-widest text-fuchsia-600 dark:text-fuchsia-400 mb-6 font-mono">01. The Concept</h2>
                             <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">From ambiguity to clarity.</h3>
@@ -163,7 +163,7 @@ export default function PareidoliaPage() {
                         <section>
                             <h2 className="text-sm font-bold uppercase tracking-widest text-fuchsia-600 dark:text-fuchsia-400 mb-6 font-mono">02. The Engine</h2>
 
-                            <div className="relative overflow-hidden bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-lg sm:rounded-3xl p-8 md:p-10 mb-16 border border-indigo-100 dark:border-white/5">
+                            <div className="relative overflow-hidden bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-lg sm:rounded-3xl p-8 lg:p-10 mb-16 border border-indigo-100 dark:border-white/5">
                                 {/* Decorative Background */}
                                 <div className="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-fuchsia-500/10 rounded-full blur-3xl"></div>
                                 <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
@@ -176,7 +176,7 @@ export default function PareidoliaPage() {
                                         <span className="font-mono text-sm font-bold text-indigo-600 dark:text-indigo-400 tracking-wider">GEMINI 2.5 FLASH</span>
                                     </div>
 
-                                    <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                                    <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
                                         Multimodal vision at the edge.
                                     </h3>
 
@@ -211,7 +211,7 @@ export default function PareidoliaPage() {
                         <section>
                             <h2 className="text-sm font-bold uppercase tracking-widest text-fuchsia-600 dark:text-fuchsia-400 mb-6 font-mono">03. Infrastructure</h2>
 
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-10">
                                 {/* Card 1: Vercel */}
                                 <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-2xl border border-gray-100 dark:border-white/5 relative overflow-hidden group">
                                     <div className="relative z-10">
@@ -417,7 +417,7 @@ export default function PareidoliaPage() {
                     </div>
 
                     {/* Sidebar Column */}
-                    <div className="md:col-span-4 space-y-8">
+                    <div className="lg:col-span-4 space-y-8">
                         <div className="sticky top-32">
                             <div className="p-6 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5 space-y-6">
                                 <div>

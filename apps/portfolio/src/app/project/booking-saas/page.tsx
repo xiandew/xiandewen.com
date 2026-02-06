@@ -4,7 +4,7 @@ export default function BookingSaaSPage() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans selection:bg-[#E0E7FF] dark:selection:bg-indigo-900">
         {/* Header / Nav */}
-       <header className="flex flex-row justify-between items-center mb-16 sm:mb-24 sticky top-0 z-50 bg-background/80 backdrop-blur-md py-4 px-6 md:px-12">
+       <header className="flex flex-row justify-between items-center mb-16 sm:mb-24 sticky top-0 z-50 bg-background/80 backdrop-blur-md py-4 px-6 lg:px-12">
           <div className="flex items-center gap-2">
              <Link href="/" className="font-bold text-lg hover:text-blue-600 dark:hover:text-blue-400 transition-colors">Paul (Xiande) Wen</Link>
           </div>
@@ -24,7 +24,7 @@ export default function BookingSaaSPage() {
           </nav>
         </header>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-12 pb-36">
+      <div className="max-w-6xl mx-auto px-6 lg:px-12 pb-36">
         
         {/* Title Section */}
         <div className="mb-12">
@@ -41,7 +41,7 @@ export default function BookingSaaSPage() {
         </div>
 
         {/* Hero Image / Block */}
-        <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-gray-900 dark:to-gray-800 rounded-lg sm:rounded-3xl h-[28rem] sm:h-auto sm:aspect-video md:aspect-[2.4/1] w-full mb-16 flex items-center justify-center border border-gray-100 dark:border-white/10 relative overflow-hidden group">
+        <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-gray-900 dark:to-gray-800 rounded-lg sm:rounded-3xl h-[28rem] sm:h-auto sm:aspect-video lg:aspect-[2.4/1] w-full mb-16 flex items-center justify-center border border-gray-100 dark:border-white/10 relative overflow-hidden group">
              
              {/* Two-Tier Architecture Visualization */}
             <div className="absolute inset-0 flex items-center justify-center">
@@ -85,7 +85,7 @@ export default function BookingSaaSPage() {
                  </div>
 
                  {/* Desktop Optimized View (Horizontal Layout) */}
-                 <div className="hidden sm:flex flex-row items-center gap-8 md:gap-24 relative z-10 w-full max-w-3xl px-8">
+                 <div className="hidden sm:flex flex-row items-center gap-8 lg:gap-24 relative z-10 w-full max-w-3xl px-8">
                      
                      {/* Tier 1: Frontend */}
                      <div className="flex-1 w-full relative group/tier1">
@@ -142,10 +142,10 @@ export default function BookingSaaSPage() {
         </div>
 
         {/* Content */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             
             {/* Main Column */}
-            <div className="md:col-span-8 space-y-16">
+            <div className="lg:col-span-8 space-y-16">
                  <section>
                     <h2 className="text-sm font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 mb-6 font-mono">01. The Platform</h2>
                     <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Two-Tier Architecture.</h3>
@@ -158,7 +158,7 @@ export default function BookingSaaSPage() {
                      <h2 className="text-sm font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 mb-6 font-mono">02. Architecture</h2>
                      
                      {/* Bento Grid Architecture */}
-                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-10">
                          <div className="bg-gray-50 dark:bg-white/5 p-6 rounded-lg sm:rounded-3xl border border-gray-100 dark:border-white/5">
                              <div className="w-10 h-10 bg-white dark:bg-gray-800 rounded-lg flex items-center justify-center mb-4 shadow-sm text-2xl">
                                  🎨
@@ -203,7 +203,7 @@ export default function BookingSaaSPage() {
                     <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Scheduling made simple.</h3>
 
                     {/* CSS Art: Calendar & Scheduling */}
-                    <div className="bg-gray-100 dark:bg-gray-900 rounded-lg sm:rounded-3xl border border-gray-200 dark:border-gray-800 p-4 md:p-8 mb-8 overflow-hidden relative min-h-[400px] flex flex-col">
+                    <div className="bg-gray-100 dark:bg-gray-900 rounded-lg sm:rounded-3xl border border-gray-200 dark:border-gray-800 p-4 lg:p-8 mb-8 overflow-hidden relative min-h-[400px] flex flex-col">
                         
                         {/* Fake App Window */}
                         <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 flex-1 flex flex-col overflow-hidden">
@@ -331,7 +331,7 @@ export default function BookingSaaSPage() {
             </div>
 
             {/* Sidebar Column */}
-            <div className="md:col-span-4 space-y-8">
+            <div className="lg:col-span-4 space-y-8">
                  <div className="sticky top-32">
                      <div className="p-6 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-100 dark:border-white/5 space-y-8">
                          <div>
